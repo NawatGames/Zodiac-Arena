@@ -1,0 +1,55 @@
+{
+    "name": "Control Map",
+    "maps": [
+        {
+            "name": "MovimentMap",
+            "id": "20f792a8-7d47-49f0-8341-625904a747e0",
+            "actions": [
+                {
+                    "name": "Direction",
+                    "type": "Button",
+                    "id": "751c7a3d-c092-4bd8-9eba-7b50b6dad6e3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "wasd",
+                    "id": "f9b149ab-433a-430d-aed4-781cc36906d5",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Direction",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "e1cc4d49-a5fc-4121-a3a7-3d2e7c51eb6a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Direction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "aaa954b3-edc2-4bf8-ad4f-aa1cb838d556",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Direction",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
