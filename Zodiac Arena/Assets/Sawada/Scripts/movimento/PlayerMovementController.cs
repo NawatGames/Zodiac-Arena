@@ -7,24 +7,20 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovementController : MonoBehaviour
 {
-
-    public ControlMap control;
+    
     private Vector2 _direction;
-    public float speed;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     
 
     [SerializeField]
-    LayerMask lmWalls;
-    [SerializeField]
-    float fJumpVelocity = 7;
+    float fJumpVelocity = 5;
     [SerializeField]
     [Range(0, 1)]
     float fHorizontalDamping = 0.5f;
     [SerializeField]
-    [Range(0, 1)]
-    float fCutJumpHeight = 0.5f;
+    [Range(1, 5)]
+    float fallGravity = 3f;
     float fJumpPressedRemember = 0;
     [SerializeField]
     float fJumpPressedRememberTime = 0.2f;
@@ -34,7 +30,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField]
     float fHorizontalAcceleration = 1;
 
-    [SerializeField] private LayerMask platformLayerMask;
+    [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask wallLayerMask;
     
     
     private void Start()
@@ -45,35 +42,44 @@ public class PlayerMovementController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, Vector2.down, 0.1f,platformLayerMask);
-        Debug.Log(raycastHit.collider);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, Vector2.down, 0.1f,groundLayerMask);
+        // Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
+    }
+    private bool IsWalled()
+    {
+        RaycastHit2D raycastHitLeft = Physics2D.BoxCast(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, Vector2.left, 0.1f,wallLayerMask);
+        RaycastHit2D raycastHitRight = Physics2D.BoxCast(_boxCollider2D.bounds.center, _boxCollider2D.bounds.size, 0f, Vector2.right, 0.1f,wallLayerMask);
+        Debug.Log(raycastHitLeft.collider);
+        Debug.Log(raycastHitRight.collider);
+        return raycastHitLeft.collider != null && raycastHitRight.collider != null && !IsGrounded();
     }
 
     private void Update()
     {
-        // Debug.Log(IsGrounded());
-        Vector2 v2GroundedBoxCheckPosition = (Vector2)transform.position + new Vector2(0, -0.01f);
-        Vector2 v2GroundedBoxCheckScale = (Vector2)transform.localScale + new Vector2(-0.02f, 0);
-        // bool bGrounded = Physics2D.OverlapBox(v2GroundedBoxCheckPosition, v2GroundedBoxCheckScale, 0, lmWalls);
-
 
         fGroundedRemember -= Time.deltaTime;
-
         fJumpPressedRemember -= Time.deltaTime;
-        if (Input.GetButtonDown("Jump"))
+        
+        // if (Input.GetButtonDown("Jump"))
+        // {
+        //     fJumpPressedRemember = fJumpPressedRememberTime;
+        // }
+        
+        if (_rigidbody2D.velocity.y < 0)
         {
-            fJumpPressedRemember = fJumpPressedRememberTime;
+            _rigidbody2D.gravityScale = fallGravity;
+        }
+        else
+        {
+            _rigidbody2D.gravityScale = 1;
         }
         
         if (IsGrounded() && Input.GetButtonDown("Jump"))
         {
-            if (_rigidbody2D.velocity.y > 0)
-            {
-                _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * fCutJumpHeight);
-            }
             // Debug.Log("jump");
-            _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, fJumpVelocity);
+            // _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, fJumpVelocity);
+            _rigidbody2D.AddForce(Vector2.up * fJumpVelocity, ForceMode2D.Impulse);
         }
 
         if ((fJumpPressedRemember > 0) && (fGroundedRemember > 0))
@@ -97,27 +103,6 @@ public class PlayerMovementController : MonoBehaviour
         
         _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
     }
-
-    private void Awake()
-    {
-        // control.MovimentMap.Direction.performed += context => UpdateDirection(context.ReadValue<Vector2>());
-        
-        // InputManager.Instance.DirectionChangedEvent += OnDirectionChanged;
-    }
-
-    // private void UpdateDirection(Vector2 direction)
-    // {
-    //     _direction = direction;
-    // }
-    private void OnDisable()
-    {
-        // InputManager.Instance.DirectionChangedEvent -= OnDirectionChanged;
-    }
-
-    // private void OnDirectionChanged(Vector2 direction)
-    // {
-    //     _direction = direction;
-    // }
 
 }
 

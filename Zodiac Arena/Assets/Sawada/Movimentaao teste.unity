@@ -791,19 +791,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9654ce634697c6a4a9ea48bc508ca47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  lmWalls:
-    serializedVersion: 2
-    m_Bits: 256
-  fJumpVelocity: 7
+  fJumpVelocity: 5
   fHorizontalDamping: 0.5
-  fCutJumpHeight: 0.5
+  fallGravity: 2
   fJumpPressedRememberTime: 0.2
   fGroundedRememberTime: 0.25
   fHorizontalAcceleration: 1
-  platformLayerMask:
+  groundLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &693988818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1029,7 @@ GameObject:
   - component: {fileID: 1004743393}
   - component: {fileID: 1004743392}
   - component: {fileID: 1004743391}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1291,7 @@ GameObject:
   - component: {fileID: 1194680869}
   - component: {fileID: 1194680868}
   - component: {fileID: 1194680867}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1553,7 @@ GameObject:
   - component: {fileID: 1574612539}
   - component: {fileID: 1574612538}
   - component: {fileID: 1574612537}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
