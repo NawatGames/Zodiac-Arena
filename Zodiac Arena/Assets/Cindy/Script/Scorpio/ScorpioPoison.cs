@@ -1,21 +1,21 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ScorpioPoison : MonoBehaviour
 {
+    [Header("Atributos do Veneno")]
     public float speedX = 5f;
     public float speedY = 5f;
     public Rigidbody2D rb;
     
+    [Header("Atributos do Chão do Veneno")]
     public GroundState ground;
     public GameObject poisongroundPrefab;
     
     void Start()
     {
         PosionMove(rb,speedX, speedY);
-        ground = GameObject.FindWithTag("ground").GetComponent<GroundState>();
-        Debug.Log(ground);
+        ground = GameObject.FindWithTag("ground").GetComponent<GroundState>(); // Acha o objeto "ground"
     }
     
     // Criação/Instanciação do gameobject veneno
@@ -29,16 +29,17 @@ public class ScorpioPoison : MonoBehaviour
     {
         rb.velocity = transform.right * Random.Range(0, speed) + transform.up * Random.Range(0, speed2);
     }
-
-    // Quando entrar em contato com qualquer gameObject diferente da Scorpio, o veneno é destruido
+    
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Quando entrar em contato com qualquer gameObject diferente da Scorpio, o veneno é destruido
         if (other.tag != "Scorpio") 
         {
             Destroy(gameObject);
         }
 
-        if (other.tag == "ground")
+        // Quando entrar em contato com um objeto de tag "ground" ele cria um novo gameobject
+        if (other.tag == "ground" )
         {
             ground.PoisonGround(poisongroundPrefab, this.transform);
         }
