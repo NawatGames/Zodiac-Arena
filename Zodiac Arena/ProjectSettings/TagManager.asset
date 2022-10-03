@@ -8,6 +8,9 @@ TagManager:
   - HorizontalEdge
   - CapricornBeam
   - BeamSpawn
+  - Scorpio
+  - danger
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -23,10 +26,6 @@ TagManager:
   - 
   - Ground
   - Wall
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
