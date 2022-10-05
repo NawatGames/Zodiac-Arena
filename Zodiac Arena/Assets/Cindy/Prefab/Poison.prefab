@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7143314830242035496}
   - component: {fileID: 8616108241432030260}
+  - component: {fileID: 6248994745087716372}
   - component: {fileID: 6081563874285482300}
   - component: {fileID: 2888229673115602654}
-  - component: {fileID: 6248994745087716372}
   m_Layer: 0
   m_Name: Poison
-  m_TagString: danger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6248994745087716372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101404134428062897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962ea3a6c60c98b4e9573eb102427201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedX: 5
+  speedY: 5
+  rb: {fileID: 6081563874285482300}
 --- !u!50 &6081563874285482300
 Rigidbody2D:
   serializedVersion: 4
@@ -122,20 +137,3 @@ CircleCollider2D:
   m_Offset: {x: -0.0018544197, y: 0}
   serializedVersion: 2
   m_Radius: 0.08516455
---- !u!114 &6248994745087716372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101404134428062897}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 962ea3a6c60c98b4e9573eb102427201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedX: 25
-  speedY: 25
-  rb: {fileID: 6081563874285482300}
-  ground: {fileID: -1940650908299815214, guid: aed2b04093968d043962ccd7d7a23f66, type: 3}
-  poisongroundPrefab: {fileID: 4548180794432728023, guid: 62e48755d6cffb242b0d253eef1fe911, type: 3}
