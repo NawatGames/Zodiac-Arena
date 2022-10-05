@@ -9,6 +9,8 @@ TagManager:
   - CapricornBeam
   - BeamSpawn
   - Danger
+  - Scorpio
+  - ground
   layers:
   - Default
   - TransparentFX
