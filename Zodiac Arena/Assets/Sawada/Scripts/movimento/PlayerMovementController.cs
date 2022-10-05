@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 // using MovementCommands;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,7 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 _direction;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
+    private Collider2D lastCollision;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLayerMask;
@@ -40,15 +42,31 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] public float jumpBufferTime = 0.1f;
     private float _hangCounter = 0;
     [SerializeField] public float hangTime = 0.1f;
+
+    [Header("Player Variables")]
+    [SerializeField] [Range(0, 1)] public float crouchSizeMultiplier = 0.5f;
+
+    [SerializeField] public float dodgeDelay = 1.5f;
+    [SerializeField] public float dodgeDuration = 0.7f;
+
+    [Header("Crouching Variables")] 
+    [SerializeField] private int dodgeCounter = 0;
+    private Vector2 crouchSize;
+    private Vector2 standingSize;
     
     private bool _canJump => _jumpBufferCounter > 0f && (_hangCounter > 0f || (_doubleJumpAvailable && doubleJump) || IsWalled());
+    private bool canDodge = true;
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        // standingSize = _boxCollider2D.size;
+        standingSize = gameObject.transform.localScale;
+        crouchSize = new Vector2(gameObject.transform.localScale.x,standingSize.y * crouchSizeMultiplier);
     }
     private void Update()
     {
+        //jumping
         if (Input.GetButtonDown("Jump")) _jumpBufferCounter = jumpBufferTime;
         else _jumpBufferCounter -= Time.deltaTime;
    
@@ -64,11 +82,42 @@ public class PlayerMovementController : MonoBehaviour
         }
         if(_canJump) Jump();
         FallMultiplier();
+        //dodging
+        if (Input.GetKey(KeyCode.Q) && canDodge)
+        {
+            canDodge = false;
+            StartCoroutine(Dodge());
+            StartCoroutine(ResetDodge());
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (transform.gameObject.CompareTag("dodging") && other.gameObject.CompareTag("attack") && other != lastCollision)
+        {
+            lastCollision = other;
+            dodgeCounter++;
+        }
     }
 
     private void FixedUpdate()
     {
         Run();
+        //crouching
+        gameObject.transform.localScale = Input.GetKey(KeyCode.LeftControl) ? crouchSize : standingSize;
+    }
+    
+    private IEnumerator Dodge()
+    {
+        transform.gameObject.tag = "dodging";
+        yield return new WaitForSeconds(dodgeDuration);
+        transform.gameObject.tag = "Player";
+    }
+    
+    private IEnumerator ResetDodge()
+    {
+        yield return new WaitForSeconds(dodgeDelay);
+        canDodge = true;
     }
     
     private bool IsGrounded()
