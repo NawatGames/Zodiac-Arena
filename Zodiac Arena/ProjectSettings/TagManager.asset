@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - VerticalEdge
-  - HorizontalEdge
-  - CapricornBeam
-  - BeamSpawn
+  - dodging
+  - attack
   layers:
   - Default
   - TransparentFX
@@ -15,10 +13,6 @@ TagManager:
   - 
   - Water
   - UI
-  - Projectiles
-  - Arena
-  - 
-  - 
   - 
   - 
   - Ground
@@ -48,7 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Arena
-    uniqueID: 4158905521
     locked: 0
