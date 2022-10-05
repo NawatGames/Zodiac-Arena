@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962ea3a6c60c98b4e9573eb102427201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedX: 25
-  speedY: 25
+  speedX: 15
+  speedY: 15
   rb: {fileID: 6081563874285482300}
   ground: {fileID: -1940650908299815214, guid: aed2b04093968d043962ccd7d7a23f66, type: 3}
   poisongroundPrefab: {fileID: 4548180794432728023, guid: 62e48755d6cffb242b0d253eef1fe911, type: 3}
