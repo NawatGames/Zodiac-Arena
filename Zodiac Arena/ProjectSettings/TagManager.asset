@@ -8,9 +8,7 @@ TagManager:
   - HorizontalEdge
   - CapricornBeam
   - BeamSpawn
-  - Scorpio
-  - danger
-  - ground
+  - Danger
   layers:
   - Default
   - TransparentFX
@@ -19,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Projectiles
-  - Arena
+  - 
   - 
   - 
   - 
