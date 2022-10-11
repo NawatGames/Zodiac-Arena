@@ -93,7 +93,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (transform.gameObject.CompareTag("dodging") && other.gameObject.CompareTag("attack") && other != lastCollision)
+        if (transform.gameObject.CompareTag("dodging") && other.gameObject.CompareTag("Danger") && other != lastCollision)
         {
             lastCollision = other;
             dodgeCounter++;
