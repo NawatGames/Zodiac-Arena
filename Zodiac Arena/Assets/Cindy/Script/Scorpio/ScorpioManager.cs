@@ -31,6 +31,7 @@ public class ScorpioManager : MonoBehaviour
         isCoroutineExecuting = false;
     }
 
+    // Quando o Player entrar nessa área, ele morre
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.name == "Player")

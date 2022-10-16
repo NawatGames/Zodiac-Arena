@@ -34,7 +34,7 @@ public class ScorpioPoison : MonoBehaviour
         Instantiate(poisonPrefab, poisonPoint.position, poisonPoint.rotation);
     }
 
-    // Movimentação em segundo grau do veneno
+    // Movimentação em segundo grau do veneno, seguindo o player 
     public void PosionMove(Rigidbody2D rb, float speed, float speed2)
     {
         Vector2 distance = player.transform.position - scorpio.transform.position;
