@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6248994745087716372}
   m_Layer: 0
   m_Name: Poison
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,3 +139,4 @@ MonoBehaviour:
   rb: {fileID: 6081563874285482300}
   ground: {fileID: 0}
   poisongroundPrefab: {fileID: 2202752141200133983, guid: 62e48755d6cffb242b0d253eef1fe911, type: 3}
+  player: {fileID: 3492569970363763105, guid: 6ab2626954f8fc14c98bbbf0985a4a59, type: 3}

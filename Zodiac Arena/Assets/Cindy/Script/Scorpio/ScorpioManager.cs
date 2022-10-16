@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,7 +9,9 @@ public class ScorpioManager : MonoBehaviour
     public ScorpioPoison scorpioPoison;
     public float timeinseconds;
     private bool isCoroutineExecuting;
-    
+
+    private Ray ray;
+
     void Update()
     {
         StartCoroutine(ExecuteAfterTime(timeinseconds));
@@ -27,4 +30,13 @@ public class ScorpioManager : MonoBehaviour
 
         isCoroutineExecuting = false;
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "Player")
+        {
+            Destroy(other.gameObject);
+        }
+    }
+    
 }
