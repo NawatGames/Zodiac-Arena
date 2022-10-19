@@ -5,7 +5,7 @@ using UnityEngine;
 // Dialogue trigger
 public class NPC : MonoBehaviour
 {
-    public Dialogue dialogue;
+    public Carol.Scripts.Novo_sistema.Dialogue dialogue;
 
     public void TriggerDialogue()
     {

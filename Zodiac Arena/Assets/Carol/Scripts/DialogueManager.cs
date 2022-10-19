@@ -20,16 +20,16 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Carol.Scripts.Novo_sistema.Dialogue dialogue)
     {
         nameText.text = dialogue.name;
         
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+        //foreach (string sentence in dialogue.sentences)
+        //{
+        //    sentences.Enqueue(sentence);
+       // }
 
         DisplayNextSentence();
         

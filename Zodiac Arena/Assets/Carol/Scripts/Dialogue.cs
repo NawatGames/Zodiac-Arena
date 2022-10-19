@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable] //To show in the inspector and edit
-public class Dialogue
+public partial class Dialogue
 {
     public string name;
     
