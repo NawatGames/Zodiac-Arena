@@ -17,6 +17,8 @@ public class Capricorn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Physics2D.IgnoreLayerCollision(6, 6);
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         beamSpawn = transform.GetChild(0);

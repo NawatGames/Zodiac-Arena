@@ -17,7 +17,6 @@ public class CapricornBeam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(6, 6); //COLOCAR NUM SCRIPT QUE RODE UMA VEZ SÓ ? (SEM PREFAB)
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = speed * transform.right;
         StartCoroutine(Lifetime(lifetime));
