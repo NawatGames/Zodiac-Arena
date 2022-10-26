@@ -11,6 +11,8 @@ TagManager:
   - Danger
   - Scorpio
   - ground
+  - Knockback
+  - Warning
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Projectiles
-  - 
+  - FallingRam
   - 
   - 
   - 

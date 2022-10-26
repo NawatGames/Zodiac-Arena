@@ -8,40 +8,60 @@ public class Aries : MonoBehaviour
     [SerializeField] private GameObject groundRam;
     [SerializeField] private GameObject jumpingRam;
     [SerializeField] private GameObject fallingRam;
+    ////////////////////[SerializeField] private GameObject KnockbackRam;
     [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
+    [SerializeField] private GameObject[] KnockbackZones; // {esquerda, centro, direita}
+    ////////////////////[SerializeField] private int kbIntensity;
+    /////////////////////private playerr playerScript; // NOME ERRADO
     private Animator anim;
     private SpriteRenderer spriteRenderer;
-    private bool facingRight;
     private float spawnDelay;
     private const float ramRightSpawnX = 9.7f;
     private const float ramLeftSpawnX = -9.7f;
     private const float spawnY = -4f;
-    private float[] AriesPos = { 7, 0, -7 };
+    private const float AriesPosY = -3.885f;
+    private float[] AriesPosX = { -7, 0, 7 };
     private int posIndex = 2;
 
     void Awake()
     {
         Physics2D.IgnoreLayerCollision(6, 13);
         Physics2D.IgnoreLayerCollision(6, 6);
-        Physics2D.IgnoreLayerCollision(4, 6);  // layer 4 eh a layer "Water" -> criar nova layer no lugar de 4
-        Physics2D.IgnoreLayerCollision(4, 13);
-        Physics2D.IgnoreLayerCollision(4, 12);
-        Physics2D.IgnoreLayerCollision(4, 4);
+        Physics2D.IgnoreLayerCollision(7, 6);
+        Physics2D.IgnoreLayerCollision(7, 13);
+        Physics2D.IgnoreLayerCollision(7, 12);
+        Physics2D.IgnoreLayerCollision(7, 7);
     }
 
     void Start()
     {
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        facingRight = false;
+        /////////////////////playerScript = player.GetComponent<playerr>();
         StartCoroutine(StartingGame(1f));
         spawnDelay = 1f;
     }
 
-    // Update is called once per frame
-    /*void Update()
+    /*private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        if (col.CompareTag("Player"))
+        {
+            Vector2 kbOrigin;
+            if (posIndex == 1)
+            {
+                kbOrigin.x = 2 * (player.position.x <= 0 ? 1 : -1);
+                kbOrigin.y = AriesPosY;
+            }
+            else
+            {
+                kbOrigin.x = AriesPosX[posIndex] * 1.3f;
+                kbOrigin.y = player.position.y; // se y > altura do chao, kb.y pode ser um pouco mais baixo p mandar mais p cima
+            }
+            Vector2 dir = (new Vector2(player.position.x, player.position.y) - kbOrigin).normalized;
+            GameObject obj = Instantiate(KnockbackRam,kbOrigin,transform.rotation);
+            obj.GetComponent<AriesKnockbackRam>().direction = dir;
+            playerScript.ApplyKnockBack(dir, kbIntensity);
+        }
     }*/
 
     private IEnumerator StartingGame(float wait)
@@ -50,21 +70,23 @@ public class Aries : MonoBehaviour
         anim.SetTrigger("battleCry");
     }
 
-    private IEnumerator SpawnFallingRams (float spawnCooldown)
+    private IEnumerator SpawnFallingRams (float spawnCooldown, int ramsMultiplier)
     {
         Vector2 spawnPos;
         spawnPos.y = 5.8f;
-        for(int i = 0; i < nFallingRams; i++)
+        for(int i = 0; i < nFallingRams * ramsMultiplier; i++)
         {
             spawnPos.x = Random.Range(-7.4f,7.4f);
             GameObject obj = Instantiate(fallingRam, spawnPos, transform.rotation);
             obj.GetComponent<AriesFallingRam>().playerPos = player.position;
             yield return new WaitForSeconds(spawnCooldown);
         }
+        yield return new WaitForSeconds(2f);
+        anim.SetTrigger("tpOut");
     }
-    private IEnumerator SpawnRams (int remainingGrounds,int remainingJumping, bool goRight, float spawnCooldown)
+    private IEnumerator SpawnAllRams (int remainingGrounds,int remainingJumping, bool goRight, float spawnCooldown)
     {
-        StartCoroutine(SpawnFallingRams(spawnCooldown));
+        StartCoroutine(SpawnFallingRams(spawnCooldown,1));
         float spawnX;
         if (goRight)
             spawnX = ramLeftSpawnX;
@@ -101,24 +123,35 @@ public class Aries : MonoBehaviour
             remainingJumping--;
             yield return new WaitForSeconds(spawnCooldown);
         }
-        yield return new WaitForSeconds(2f);
-        anim.SetTrigger("tpOut");
+        // Animação de tp para recomeçar ataque é ativada no fim de SpawnFallingRams()
     }
-
 
     public void StartAttacks() // Trigger do fim da animação chamará esta função
     {
         int nGround = Random.Range(1, 6) * nFallingRams / 10;
         int nJumping = nFallingRams - nGround;
 
-        StartCoroutine(SpawnRams(nGround,nJumping,facingRight,spawnDelay));
-        
+        switch(posIndex)
+        {
+            case 0:
+                StartCoroutine(SpawnAllRams(nGround, nJumping, true, spawnDelay));
+                break;
+            case 1:
+                StartCoroutine(SpawnFallingRams(spawnDelay / 2, 2));
+                break;
+            case 2:
+                StartCoroutine(SpawnAllRams(nGround, nJumping, false, spawnDelay));
+                break;
+            default:
+                break;
+        }
     }
     public void ChangeDirectionAndTP()
     {
-        facingRight = !facingRight;
-        spriteRenderer.flipY = !spriteRenderer.flipY;
+        KnockbackZones[posIndex].SetActive(false);
+        //spriteRenderer.flipY = !spriteRenderer.flipY;
         posIndex = (posIndex + Random.Range(1, 3)) % 3;
-        transform.position = new Vector2(AriesPos[posIndex], transform.position.y);
+        transform.position = new Vector2(AriesPosX[posIndex], AriesPosY);
+        KnockbackZones[posIndex].SetActive(true);
     }
 }
