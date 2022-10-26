@@ -1,68 +1,138 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public void Aries()
+    private GameObject lastSelectedButton = null;
+    private float angleToRotate = 0f;
+    public List<Sprite> signIcons = new List<Sprite>();
+    public GameObject signFrame;
+    public GameObject levelsFrame;
+    public List<GameObject> levels = new List<GameObject>();
+    
+    
+    private void FixedUpdate()
     {
-        SceneManager.LoadScene("Aries");
+        // Debug.Log(levelsFrame.transform.eulerAngles.z);
+        if (Math.Abs(levelsFrame.transform.eulerAngles.z - angleToRotate) > 2f)
+        {
+            levelsFrame.transform.Rotate(0, 0, 2);
+        }
+
     }
     
-    public void Taurus()
+    public void OnSelect(GameObject currentSelected)
     {
-        SceneManager.LoadScene("Taurus");
+        lastSelectedButton = currentSelected;
+        for (int i = 0; i < levels.Count; i++)
+        {
+            if (levels[i] == currentSelected)
+            {
+                signFrame.GetComponent<Image>().sprite = signIcons[i];
+                angleToRotate = 360 / levels.Count * i;
+            }
+        }
+    }
+    public void Aries(GameObject button)
+    {
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Aries");
+    }
+    
+    public void Taurus(GameObject button)
+    {
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Taurus");
     }
 
-    public void Gemini()
+    public void Gemini(GameObject button)
     {
-        SceneManager.LoadScene("Gemini");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Gemini");
     }
 
-    public void Cancer()
+    public void Cancer(GameObject button)
     {
-        SceneManager.LoadScene("Cancer");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Cancer");
     }
     
-    public void Leo()
+    public void Leo(GameObject button)
     {
-        SceneManager.LoadScene("Leo");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Leo");
     }
     
-    public void Virgo()
+    public void Virgo(GameObject button)
     {
-        SceneManager.LoadScene("Virgo");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Virgo");
     }
     
-    public void Libra()
+    public void Libra(GameObject button)
     {
-        SceneManager.LoadScene("Libra");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Libra");
     }
     
-    public void Scorpio()
+    public void Scorpio(GameObject button)
     {
-        SceneManager.LoadScene("Scorpio");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Scorpio");
     }
     
-    public void Sagittarius()
+    public void Sagittarius(GameObject button)
     {
-        SceneManager.LoadScene("Sagittarius");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Sagittarius");
     }
     
-    public void Capricorn()
+    public void Capricorn(GameObject button)
     {
-        SceneManager.LoadScene("Capricorn");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Capricorn");
     }
     
-    public void Aquarius()
+    public void Aquarius(GameObject button)
     {
-        SceneManager.LoadScene("Aquarius");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Aquarius");
     }
     
-    public void Pisces()
+    public void Pisces(GameObject button)
     {
-        SceneManager.LoadScene("Pisces");
+        if(lastSelectedButton != button)
+            OnSelect(button);
+        else
+            SceneManager.LoadScene("Pisces");
     }
 
     public void QuitGame()

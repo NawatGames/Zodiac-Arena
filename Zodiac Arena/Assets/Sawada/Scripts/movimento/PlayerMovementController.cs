@@ -109,9 +109,11 @@ public class PlayerMovementController : MonoBehaviour
     
     private IEnumerator Dodge()
     {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         transform.gameObject.tag = "dodging";
         yield return new WaitForSeconds(dodgeDuration);
         transform.gameObject.tag = "Player";
+        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
     }
     
     private IEnumerator ResetDodge()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +12,16 @@ public class ScorpioPoison : MonoBehaviour
     [Header("Atributos do Chão do Veneno")]
     public GroundState ground;
     public GameObject poisongroundPrefab;
-    
+
+    public GameObject player;
+    public GameObject scorpio;
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player");
+        scorpio = GameObject.Find("Scorpio");
+    }
+
     void Start()
     {
         PosionMove(rb,speedX, speedY);
@@ -24,10 +34,11 @@ public class ScorpioPoison : MonoBehaviour
         Instantiate(poisonPrefab, poisonPoint.position, poisonPoint.rotation);
     }
 
-    // Movimentação em segundo grau do veneno
+    // Movimentação em segundo grau do veneno, seguindo o player 
     public void PosionMove(Rigidbody2D rb, float speed, float speed2)
     {
-        rb.velocity = transform.right * Random.Range(0, speed) + transform.up * Random.Range(0, speed2);
+        Vector2 distance = player.transform.position - scorpio.transform.position;
+        rb.velocity = transform.right * distance.x*Random.Range(0,speed) + transform.up * distance.y*Random.Range(0,speed2);
     }
     
     void OnTriggerEnter2D(Collider2D other)
