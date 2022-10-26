@@ -11,6 +11,8 @@ TagManager:
   - Danger
   - Scorpio
   - ground
+  - Knockback
+  - Warning
   - dodging
   layers:
   - Default
@@ -20,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Projectiles
-  - 
+  - FallingRam
   - 
   - 
   - 
