@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Spine : MonoBehaviour
 {
+    public float timeinseconds;
+    private bool isCoroutineExecuting;
+    
     private void Start()
     {
         ColliderDisable();
@@ -21,6 +24,25 @@ public class Spine : MonoBehaviour
     {
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
       
+    }
+    
+    
+    IEnumerator ExecuteAfterTime(float time)
+    {
+        if (isCoroutineExecuting)
+            yield break;
+        
+        isCoroutineExecuting = true;
+        
+        yield return new WaitForSeconds(time);
+        this.gameObject.SetActive(false);
+
+        isCoroutineExecuting = false;
+    }
+    void Update()
+    {
+        StartCoroutine(ExecuteAfterTime(timeinseconds));
+
     }
     
     // Quando o Player entrar nessa área, ele morre
