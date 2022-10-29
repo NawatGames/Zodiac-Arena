@@ -1,20 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 
-public class Spine : MonoBehaviour
+public class Spike : MonoBehaviour
 {
     public float timeinseconds;
     private bool isCoroutineExecuting;
+    Animator animator;
     
     private void Start()
     {
+        
+        animator = this.gameObject.GetComponent<Animator>();
         ColliderDisable();
+        animator.speed = timeinseconds;
+        animator.SetFloat("time", Convert.ToSingle(0.5));
     }
     
     void ColliderEnable()
     {
+        
         
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
       

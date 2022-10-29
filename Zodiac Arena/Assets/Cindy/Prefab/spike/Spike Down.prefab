@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 6643716000565382962}
   - component: {fileID: 6643716000565382961}
   - component: {fileID: 6643716000565382965}
-  - component: {fileID: 6643716000565382964}
   m_Layer: 0
-  m_Name: Spine Down
+  m_Name: Spike Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8ea5f1f1f0cf542b7b9878aed97280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeinseconds: 5
 --- !u!95 &6643716000565382965
 Animator:
   serializedVersion: 3
@@ -143,11 +143,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!222 &6643716000565382964
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6643716000565382960}
-  m_CullTransparentMesh: 1
