@@ -12,7 +12,7 @@ public class Spine : MonoBehaviour
     {
         ColliderDisable();
     }
-
+    
     void ColliderEnable()
     {
         
@@ -26,7 +26,7 @@ public class Spine : MonoBehaviour
       
     }
     
-    
+    // Escolher o tempo que quer deixar o espinho on antes de sair de cena
     IEnumerator ExecuteAfterTime(float time)
     {
         if (isCoroutineExecuting)
