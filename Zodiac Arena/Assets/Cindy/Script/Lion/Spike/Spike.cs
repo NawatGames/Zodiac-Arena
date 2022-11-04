@@ -15,6 +15,7 @@ public class Spike : MonoBehaviour
         ColliderDisable();
     }
     
+    // Habilitar o collider e deixar o game object em cena em um determinado periodo de tempo
     void ColliderEnable()
     {
         
@@ -24,6 +25,7 @@ public class Spike : MonoBehaviour
       
     }
     
+    // Desabilitar o collider
     void ColliderDisable()
     {
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -45,11 +47,11 @@ public class Spike : MonoBehaviour
     }
 
     // Quando o Player entrar nessa área, ele morre
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.name == "Player")
-        {
-            Destroy(other.gameObject);
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.name == "Player")
+    //    {
+    //        Destroy(other.gameObject);
+    //    }
+    //}
 }
