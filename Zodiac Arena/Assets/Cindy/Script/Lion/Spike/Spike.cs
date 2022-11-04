@@ -3,20 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Spike : MonoBehaviour
 {
     public float timeinseconds;
     private bool isCoroutineExecuting;
-    Animator animator;
-    
-    private void Start()
+
+    private void Awake()
     {
-        
-        animator = this.gameObject.GetComponent<Animator>();
         ColliderDisable();
-        animator.speed = timeinseconds;
-        animator.SetFloat("time", Convert.ToSingle(0.5));
     }
     
     void ColliderEnable()
@@ -24,6 +20,7 @@ public class Spike : MonoBehaviour
         
         
         this.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        StartCoroutine(ExecuteAfterTime(timeinseconds));
       
     }
     
@@ -41,17 +38,12 @@ public class Spike : MonoBehaviour
         
         isCoroutineExecuting = true;
         
-        yield return new WaitForSeconds(time);
-        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(Random.Range(1,timeinseconds));
+        Destroy(this.gameObject);
 
         isCoroutineExecuting = false;
     }
-    void Update()
-    {
-        StartCoroutine(ExecuteAfterTime(timeinseconds));
 
-    }
-    
     // Quando o Player entrar nessa área, ele morre
     void OnTriggerEnter2D(Collider2D other)
     {
