@@ -74,7 +74,7 @@ public class Capricorn : MonoBehaviour
         Instantiate(beam, beamSpawn.position, beamSpawn.rotation);
     }
 
-    public void Assault() // Trigger do fim da animação vai chamar esta funcao
+    public void Assault() // Trigger do fim da animaÃ§Ã£o vai chamar esta funcao
     {
         running = true;
         if (player.position.x - transform.position.x > 0)
