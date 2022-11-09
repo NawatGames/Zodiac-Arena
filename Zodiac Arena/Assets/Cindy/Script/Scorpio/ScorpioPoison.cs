@@ -44,7 +44,7 @@ public class ScorpioPoison : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // Quando entrar em contato com qualquer gameObject diferente da Scorpio, o veneno é destruido
-        if (other.tag != "Scorpio") 
+        if (other.name != "Scorpio") 
         {
             Destroy(gameObject);
         }

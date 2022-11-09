@@ -123,10 +123,10 @@ public class Aries : MonoBehaviour
             remainingJumping--;
             yield return new WaitForSeconds(spawnCooldown);
         }
-        // AnimaÁ„o de tp para recomeÁar ataque È ativada no fim de SpawnFallingRams()
+        // Anima√ß√£o de tp para recome√ßar ataque √© ativada no fim de SpawnFallingRams()
     }
 
-    public void StartAttacks() // Trigger do fim da animaÁ„o chamar· esta funÁ„o
+    public void StartAttacks() // Trigger do fim da anima√ß√£o chamar√° esta fun√ß√£o
     {
         int nGround = Random.Range(1, 6) * nFallingRams / 10;
         int nJumping = nFallingRams - nGround;
