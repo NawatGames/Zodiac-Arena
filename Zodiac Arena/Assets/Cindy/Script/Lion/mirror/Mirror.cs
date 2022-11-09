@@ -6,15 +6,14 @@ public class Mirror : MonoBehaviour
 {
     public GameObject light;
     public float timeinsecondsenablelight = 2;
-    public float timeinsecondsdisablelight;
-    
+
     private bool isCoroutineExecuting;
     public void Update()
     {
         StartCoroutine(ExecuteAfterTimeEnable(timeinsecondsenablelight));
     }
 
-    // Após um tempo randômico gera um game object (prefab)
+    // Após um tempo randômico ativa a luz e depois de outro tempo randomico desativa o espelho e a luz
     IEnumerator ExecuteAfterTimeEnable(float time)
     {
         if (isCoroutineExecuting)

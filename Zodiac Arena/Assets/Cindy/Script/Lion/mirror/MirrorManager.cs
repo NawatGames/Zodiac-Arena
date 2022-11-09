@@ -13,7 +13,7 @@ public class MirrorManager : MonoBehaviour
         StartCoroutine(ExecuteAfterTimeEnable(Random.Range(0,timeinsecondsmirror)));
     }
 
-    // Após um tempo randômico gera um game object (prefab)
+    // Após um tempo randômico ativa o espelho sem ativar a luz
     IEnumerator ExecuteAfterTimeEnable(float time)
     {
         if (isCoroutineExecuting)
