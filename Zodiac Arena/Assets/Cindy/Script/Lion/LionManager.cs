@@ -21,6 +21,8 @@ public class LionManager : MonoBehaviour
 
     [Header("Tempo Máximo")]
     public float timeinseconds;
+
+    public GameObject spikeGameObject;
     
     private bool isCoroutineExecuting;
     private Dictionary<GameObject, Transform> dict;
@@ -50,8 +52,9 @@ public class LionManager : MonoBehaviour
         
         yield return new WaitForSeconds(time);
         randomKey = dict.ElementAt(Random.Range(0, dict.Count)).Key;
-        Instantiate(randomKey, dict[randomKey].position, dict[randomKey].rotation);
-
+        var spike = Instantiate(randomKey, dict[randomKey].position, dict[randomKey].rotation);
+        spike.transform.parent = spikeGameObject.transform;
+        
         isCoroutineExecuting = false;
     }
 
