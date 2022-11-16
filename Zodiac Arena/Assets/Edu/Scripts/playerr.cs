@@ -97,17 +97,29 @@ public class playerr : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Danger"))
+        {
+            Debug.Log("Hit");
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        /*if (transform.gameObject.CompareTag("dodging") && other.gameObject.CompareTag("Danger") && other != lastCollision)
+        if (transform.gameObject.CompareTag("dodging") && other.gameObject.CompareTag("Danger") && other != lastCollision)
         {
             lastCollision = other;
             dodgeCounter++;
-        }*/
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (col.CompareTag("Danger"))
+        {
+            Debug.Log("Hit");
+        }
         if (col.CompareTag("Warning"))
             Warning.enabled = true;
         else if(col.CompareTag("Knockback"))
