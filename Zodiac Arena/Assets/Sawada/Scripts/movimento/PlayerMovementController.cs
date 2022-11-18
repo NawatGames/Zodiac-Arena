@@ -14,6 +14,7 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Collider2D lastCollision;
+    private Animator _animator;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLayerMask;
@@ -60,6 +61,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _animator = GetComponent<Animator>();
         // standingSize = _boxCollider2D.size;
         standingSize = gameObject.transform.localScale;
         crouchSize = new Vector2(gameObject.transform.localScale.x,standingSize.y * crouchSizeMultiplier);
@@ -162,15 +164,10 @@ public class PlayerMovementController : MonoBehaviour
     
     private void Run()
     {
+        _animator.SetBool("isFacingLeft", _rigidbody2D.velocity.x < 0);
+        _animator.SetBool("isRunning", _rigidbody2D.velocity.x != 0);
+
         float fHorizontalVelocity = _rigidbody2D.velocity.x;
-        
-        // fHorizontalVelocity += Input.GetAxisRaw("Horizontal");
-        // if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
-        //     fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDamping, Time.deltaTime * 10f);
-        // else if (Mathf.Sign(Input.GetAxisRaw("Horizontal")) != Mathf.Sign(fHorizontalVelocity))
-        //     fHorizontalVelocity *= Mathf.Pow(1f - fHorizontalDamping, Time.deltaTime * 10f);
-        // else
-        // fHorizontalVelocity *= Mathf.Pow(1f - horizontalDamping, Time.deltaTime * 10f);
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
             fHorizontalVelocity = 0;
