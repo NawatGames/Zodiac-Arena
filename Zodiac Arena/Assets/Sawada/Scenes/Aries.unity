@@ -1449,9 +1449,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sword: {fileID: 7007580369367673548, guid: 64f55a33f712da848aca5b0469ff4e3b, type: 3}
-  warning: {fileID: 1745924233359749142, guid: 2a84bb1dc5350414e9887ee7a284bffa, type: 3}
+  warningVertical: {fileID: 1745924233359749142, guid: 2a84bb1dc5350414e9887ee7a284bffa, type: 3}
+  warningHorizontal: {fileID: 1600058609676858129, guid: 8f2aa4239406fab4889dfcf91a361a13, type: 3}
   leftWall: {fileID: 1194680866}
   rightWall: {fileID: 1574612536}
+  upWall: {fileID: 1004743390}
+  downWall: {fileID: 1207051073}
+  startDelay: 3
   warningDelay: 1.5
   swordVelocity: 10
   swordDelay: 0
+  atackDuration: 10
+  balanca: {fileID: 2046566562}
+  isStartDelay: 0

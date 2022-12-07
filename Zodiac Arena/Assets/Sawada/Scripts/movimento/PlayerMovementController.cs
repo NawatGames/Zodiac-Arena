@@ -164,7 +164,10 @@ public class PlayerMovementController : MonoBehaviour
     
     private void Run()
     {
-        _animator.SetBool("isFacingLeft", _rigidbody2D.velocity.x < 0);
+        if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") < 0)
+            _animator.SetBool("isFacingLeft", true);
+        else if(_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
+            _animator.SetBool("isFacingLeft", false);
         _animator.SetBool("isRunning", _rigidbody2D.velocity.x != 0);
 
         float fHorizontalVelocity = _rigidbody2D.velocity.x;
