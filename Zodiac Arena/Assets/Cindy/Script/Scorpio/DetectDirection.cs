@@ -12,7 +12,8 @@ public class DetectDirection : MonoBehaviour
     {
         Direction();
     }
-
+    
+    // Muda a direção do scorpio de acordo com o lado que o player se encontra
     void Direction()
     {
         Vector2 distance = player.transform.position - this.transform.position;
