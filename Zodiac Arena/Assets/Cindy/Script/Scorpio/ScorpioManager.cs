@@ -11,6 +11,8 @@ public class ScorpioManager : MonoBehaviour
     private bool isCoroutineExecuting;
 
     private Ray ray;
+    
+    public Animator animator;
 
     void Update()
     {
