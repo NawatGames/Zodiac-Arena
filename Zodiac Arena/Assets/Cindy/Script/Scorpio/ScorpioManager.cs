@@ -20,7 +20,7 @@ public class ScorpioManager : MonoBehaviour
         StartCoroutine(ExecuteAfterTime(timeinseconds));
 
     }
-    
+    // Atacar após um tempo
     IEnumerator ExecuteAfterTime(float time)
     {
         if (isCoroutineExecuting)
