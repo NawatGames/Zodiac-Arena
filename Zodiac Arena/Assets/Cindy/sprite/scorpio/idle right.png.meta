@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: f800c14f74dee7f42a346c79bc872e64
+guid: cf876798dc694524eb4e4f42aa57e514
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5750983410200304667
-    second: escorpio idle left_0
+      213: -832919936661052217
+    second: idle right_0
   - first:
-      213: 74423324366545586
-    second: escorpio idle left_1
+      213: 5026059756683766502
+    second: idle right_1
   - first:
-      213: 8728562793913963146
-    second: escorpio idle left_2
+      213: -1426640940143373334
+    second: idle right_2
   - first:
-      213: 3252347894765225200
-    second: escorpio idle left_3
+      213: 2506121190711480756
+    second: idle right_3
   - first:
-      213: 1565682546639453297
-    second: escorpio idle left_4
+      213: 2679473773952173094
+    second: idle right_4
   - first:
-      213: 887679795553525483
-    second: escorpio idle left_5
+      213: 3154935190469760831
+    second: idle right_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,13 +145,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: escorpio idle left_0
+      name: idle right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,41 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1c572a01f89fcf40800000000000000
-      internalID: 5750983410200304667
+      spriteID: 7c42af80bbfd074f0800000000000000
+      internalID: -832919936661052217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: escorpio idle left_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2b22fd38e97680100800000000000000
-      internalID: 74423324366545586
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpio idle left_2
+      name: idle right_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,41 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a82deea7d95122970800000000000000
-      internalID: 8728562793913963146
+      spriteID: 6eaa50138b620c540800000000000000
+      internalID: 5026059756683766502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: escorpio idle left_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f48879bd29a22d20800000000000000
-      internalID: 3252347894765225200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: escorpio idle left_4
+      name: idle right_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17c39771bfb6ab510800000000000000
-      internalID: 1565682546639453297
+      spriteID: ae399b4af9d833ce0800000000000000
+      internalID: -1426640940143373334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: escorpio idle left_5
+      name: idle right_3
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,8 +222,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bee5248221ca15c00800000000000000
-      internalID: 887679795553525483
+      spriteID: 4b1df68e1f787c220800000000000000
+      internalID: 2506121190711480756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle right_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624056173376f2520800000000000000
+      internalID: 2679473773952173094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: idle right_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37545517d498cb20800000000000000
+      internalID: 3154935190469760831
       vertices: []
       indices: 
       edges: []
