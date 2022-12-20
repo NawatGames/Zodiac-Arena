@@ -480,7 +480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 700810182}
   animator: {fileID: 175256104}
-  shootPoison: 0
+  scorpioPoison: {fileID: 6248994745087716372, guid: c35b38467f048e44ebb2147789fdeea0, type: 3}
 --- !u!1001 &495561552
 PrefabInstance:
   m_ObjectHideFlags: 0
