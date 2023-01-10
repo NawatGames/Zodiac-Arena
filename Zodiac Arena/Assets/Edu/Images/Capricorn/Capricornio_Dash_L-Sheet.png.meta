@@ -1,31 +1,43 @@
 fileFormatVersion: 2
-guid: c0ff0612f035c3144bac502af17cb87b
+guid: bb8964f38b6fa2141a906d1b74ced500
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3849399769707106774
-    second: capricornio_L-Sheet_0
+      213: 7616139829899031554
+    second: Capricornio_Dash_L-Sheet_0
   - first:
-      213: -4269800483506680645
-    second: capricornio_L-Sheet_1
+      213: -5881964583466519878
+    second: Capricornio_Dash_L-Sheet_1
   - first:
-      213: -5075575620192412934
-    second: capricornio_L-Sheet_2
+      213: 5081748467909203504
+    second: Capricornio_Dash_L-Sheet_2
   - first:
-      213: -7553428137757936068
-    second: capricornio_L-Sheet_3
+      213: -9061249326185536898
+    second: Capricornio_Dash_L-Sheet_3
   - first:
-      213: 1592984167510181689
-    second: capricornio_L-Sheet_4
+      213: -744100970601679022
+    second: Capricornio_Dash_L-Sheet_4
   - first:
-      213: -7727298810397155486
-    second: capricornio_L-Sheet_5
+      213: 2487064041364995329
+    second: Capricornio_Dash_L-Sheet_5
   - first:
-      213: -8488651077368303722
-    second: capricornio_L-Sheet_6
+      213: -7805843913733326410
+    second: Capricornio_Dash_L-Sheet_6
   - first:
-      213: -6289699847938173127
-    second: capricornio_L-Sheet_7
+      213: 8131087632226650864
+    second: Capricornio_Dash_L-Sheet_7
+  - first:
+      213: -9021752822442532597
+    second: Capricornio_Dash_L-Sheet_8
+  - first:
+      213: -3342314499098136637
+    second: Capricornio_Dash_L-Sheet_9
+  - first:
+      213: 2919997664997724726
+    second: Capricornio_Dash_L-Sheet_10
+  - first:
+      213: -7040713028538138537
+    second: Capricornio_Dash_L-Sheet_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -70,7 +82,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,7 +127,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: capricornio_L-Sheet_0
+      name: Capricornio_Dash_L-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -129,14 +141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2e2320fd4f249ac0800000000000000
-      internalID: -3849399769707106774
+      spriteID: 204f5d0c2d6f1b960800000000000000
+      internalID: 7616139829899031554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_1
+      name: Capricornio_Dash_L-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -150,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbc0bc6251f9eb4c0800000000000000
-      internalID: -4269800483506680645
+      spriteID: ab2bc0510601f5ea0800000000000000
+      internalID: -5881964583466519878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_2
+      name: Capricornio_Dash_L-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afa5ccf6ddeef89b0800000000000000
-      internalID: -5075575620192412934
+      spriteID: 0361d9bae4ff58640800000000000000
+      internalID: 5081748467909203504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_3
+      name: Capricornio_Dash_L-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -192,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c367f74e025dc2790800000000000000
-      internalID: -7553428137757936068
+      spriteID: e72a6731fb9ff3280800000000000000
+      internalID: -9061249326185536898
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_4
+      name: Capricornio_Dash_L-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -213,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 937044d09aa6b1610800000000000000
-      internalID: 1592984167510181689
+      spriteID: 25773421c1c6ca5f0800000000000000
+      internalID: -744100970601679022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_5
+      name: Capricornio_Dash_L-Sheet_5
       rect:
         serializedVersion: 2
         x: 160
@@ -234,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26f9af44cae13c490800000000000000
-      internalID: -7727298810397155486
+      spriteID: 10d353f8193d38220800000000000000
+      internalID: 2487064041364995329
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_6
+      name: Capricornio_Dash_L-Sheet_6
       rect:
         serializedVersion: 2
         x: 192
@@ -255,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69fa937e1d0423a80800000000000000
-      internalID: -8488651077368303722
+      spriteID: 6b9b7cd41521ca390800000000000000
+      internalID: -7805843913733326410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: capricornio_L-Sheet_7
+      name: Capricornio_Dash_L-Sheet_7
       rect:
         serializedVersion: 2
         x: 224
@@ -276,8 +288,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93711d3005f76b8a0800000000000000
-      internalID: -6289699847938173127
+      spriteID: 0fa01740f1d67d070800000000000000
+      internalID: 8131087632226650864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capricornio_Dash_L-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b016fe67b9b4cc280800000000000000
+      internalID: -9021752822442532597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capricornio_Dash_L-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf2e91eba6bd91d0800000000000000
+      internalID: -3342314499098136637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capricornio_Dash_L-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632d82fc76ae58820800000000000000
+      internalID: 2919997664997724726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Capricornio_Dash_L-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7500588cdcc5a4e90800000000000000
+      internalID: -7040713028538138537
       vertices: []
       indices: 
       edges: []

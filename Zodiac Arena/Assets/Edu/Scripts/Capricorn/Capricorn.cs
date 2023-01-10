@@ -8,10 +8,12 @@ public class Capricorn : MonoBehaviour
     [SerializeField] private GameObject beam;
     [SerializeField] private float velocity;
     [SerializeField] private int nShots;
+    [SerializeField] private AnimatorOverrideController leftAnimCtrl;
+    [SerializeField] private AnimatorOverrideController rightAnimCtrl;
     private Transform beamSpawn;
     private Rigidbody2D rb;
     private Animator anim;
-    private bool facedRight = false;
+    private bool facingRight = false;
     private bool running = false;
 
     // Start is called before the first frame update
@@ -30,36 +32,32 @@ public class Capricorn : MonoBehaviour
     {
         if (player.position.x - transform.position.x > 0)
         {
-            if (!facedRight)
+            if (!facingRight)
             {
                 if (running)
                 {
-                    rb.AddForce(Vector2.right * velocity);
-                    running = false;
-                    StartCoroutine(StartAttacks(1f));
+                    StopAssault(Vector2.right);
                 }
                 else
                 {
-                    anim.SetTrigger("flip");
-                    facedRight = true;
+                    anim.runtimeAnimatorController = rightAnimCtrl;
+                    facingRight = true;
                 }
             }
         }
             
         else
         {
-            if (facedRight)
+            if (facingRight)
             {
                 if (running)
                 {
-                    rb.AddForce(Vector2.left * velocity);
-                    running = false;
-                    StartCoroutine(StartAttacks(1f));
+                    StopAssault(Vector2.left);
                 }
                 else
                 {
-                    anim.SetTrigger("flip");
-                    facedRight = false;
+                    anim.runtimeAnimatorController = leftAnimCtrl;
+                    facingRight = false;
                 }
             }
         }
@@ -67,22 +65,18 @@ public class Capricorn : MonoBehaviour
 
         if (running)
         {
-            if(facedRight && transform.position.x > 7)
+            if(facingRight && transform.position.x > 7)
             {
-                rb.AddForce(Vector2.left * velocity);
-                running = false;
-                StartCoroutine(StartAttacks(1f));
+                StopAssault(Vector2.left);
             }
-            if(!facedRight && transform.position.x < -7)
+            if(!facingRight && transform.position.x < -7)
             {
-                rb.AddForce(Vector2.right * velocity);
-                running = false;
-                StartCoroutine(StartAttacks(1f));
+                StopAssault(Vector2.right);
             }
         }
     }
 
-    void ShootLaserBeam()
+    public void ShootLaserBeam()
     {
         beamSpawn.right = (player.position - beamSpawn.position).normalized;
         Instantiate(beam, beamSpawn.position, beamSpawn.rotation);
@@ -91,7 +85,7 @@ public class Capricorn : MonoBehaviour
     public void Assault() // Trigger do fim da animação de charge chama esta funcao
     {
         running = true;
-        if (facedRight)
+        if (facingRight)
         {
             rb.AddForce(Vector2.right * velocity);
         }
@@ -101,14 +95,22 @@ public class Capricorn : MonoBehaviour
         }
     }
 
+    private void StopAssault(Vector2 stoppingForceDirection)
+    {
+        anim.SetTrigger("stop");
+        rb.AddForce(stoppingForceDirection * velocity);
+        running = false;
+        StartCoroutine(StartAttacks(1f));
+    }
+
 
     private IEnumerator StartAttacks(float startTime)
     {
         yield return new WaitForSeconds(startTime);
         for (int i = 0; i < nShots; i++)
         {
-            ShootLaserBeam();
-            yield return new WaitForSeconds(1.5f);
+            anim.SetTrigger("shoot");
+            yield return new WaitForSeconds(2f);
         }
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("charge");

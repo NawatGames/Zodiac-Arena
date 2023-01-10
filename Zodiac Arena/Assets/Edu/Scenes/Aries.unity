@@ -538,8 +538,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0.28540885, b: 0.18431371, a: 1}
+  m_Sprite: {fileID: -9213306302495168488, guid: 7643ae3b492866e4caf839a6c18e4ef8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -557,8 +557,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429151708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: -3.885, z: 0}
-  m_LocalScale: {x: 0.75, y: 1.2, z: 1}
+  m_LocalPosition: {x: 7, y: -4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 402554733}
   m_Father: {fileID: 0}
@@ -580,11 +580,13 @@ MonoBehaviour:
   groundRam: {fileID: 6363828174826958972, guid: a976ca52a3b019541920632ef651d6b0, type: 3}
   jumpingRam: {fileID: 4621130910588808671, guid: a545f67270772a545b31cadee837ed74, type: 3}
   fallingRam: {fileID: 7095451132734870937, guid: ab4c38d54505f204893c0a56d928b78d, type: 3}
-  nFallingRams: 5
+  nFallingRams: 6
   KnockbackZones:
   - {fileID: 934081323}
   - {fileID: 238908031}
   - {fileID: 463548347}
+  leftAnimCtrl: {fileID: 22100000, guid: 3f52a56e223d5d8468a741bd7d2245b2, type: 2}
+  rightAnimCtrl: {fileID: 22100000, guid: 8a4d1082e8c2b5a49b6cef86bf815a3c, type: 2}
 --- !u!95 &429151712
 Animator:
   serializedVersion: 3
@@ -595,7 +597,7 @@ Animator:
   m_GameObject: {fileID: 429151708}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 437aa1f63f4607b4ca4357ce55e79d53, type: 2}
+  m_Controller: {fileID: 22100000, guid: 3f52a56e223d5d8468a741bd7d2245b2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
