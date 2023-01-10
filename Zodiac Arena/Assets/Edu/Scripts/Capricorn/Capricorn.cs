@@ -36,7 +36,7 @@ public class Capricorn : MonoBehaviour
             {
                 if (running)
                 {
-                    StopAssault(Vector2.right);
+                    StopDash(Vector2.right);
                 }
                 else
                 {
@@ -52,7 +52,7 @@ public class Capricorn : MonoBehaviour
             {
                 if (running)
                 {
-                    StopAssault(Vector2.left);
+                    StopDash(Vector2.left);
                 }
                 else
                 {
@@ -67,11 +67,11 @@ public class Capricorn : MonoBehaviour
         {
             if(facingRight && transform.position.x > 7)
             {
-                StopAssault(Vector2.left);
+                StopDash(Vector2.left);
             }
             if(!facingRight && transform.position.x < -7)
             {
-                StopAssault(Vector2.right);
+                StopDash(Vector2.right);
             }
         }
     }
@@ -82,7 +82,7 @@ public class Capricorn : MonoBehaviour
         Instantiate(beam, beamSpawn.position, beamSpawn.rotation);
     }
 
-    public void Assault() // Trigger do fim da animação de charge chama esta funcao
+    public void Dash() // Trigger do fim da animação de charge chama esta funcao
     {
         running = true;
         if (facingRight)
@@ -95,7 +95,7 @@ public class Capricorn : MonoBehaviour
         }
     }
 
-    private void StopAssault(Vector2 stoppingForceDirection)
+    private void StopDash(Vector2 stoppingForceDirection)
     {
         anim.SetTrigger("stop");
         rb.AddForce(stoppingForceDirection * velocity);
