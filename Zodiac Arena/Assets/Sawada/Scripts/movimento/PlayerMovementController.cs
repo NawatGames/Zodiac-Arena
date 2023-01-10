@@ -57,11 +57,16 @@ public class PlayerMovementController : MonoBehaviour
     
     private bool _canJump => _jumpBufferCounter > 0f && (_hangCounter > 0f || (_doubleJumpAvailable && doubleJump) || IsWalled());
     private bool canDodge = true;
+    private bool isFacingLeft;
+    private bool isDodging;
+    private bool isJumping;
+    private bool isRunning;
+
     private void Start()
     {
+        _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _boxCollider2D = GetComponent<BoxCollider2D>();
-        _animator = GetComponent<Animator>();
         // standingSize = _boxCollider2D.size;
         standingSize = gameObject.transform.localScale;
         crouchSize = new Vector2(gameObject.transform.localScale.x,standingSize.y * crouchSizeMultiplier);
@@ -74,11 +79,19 @@ public class PlayerMovementController : MonoBehaviour
    
         if (IsGrounded() || IsWalled())
         {
+            if (_jumpBufferCounter < 0 && _rigidbody2D.velocity.y == 0)
+            {
+                isJumping = false;
+                if (!isDodging && !isRunning)
+                    _animator.Play(isFacingLeft? "Player_Idle_Left" : "Player_Idle_Right");
+            }
             _hangCounter = hangTime;
             _doubleJumpAvailable = true;
         }
         else
         {
+            if(!isDodging)
+                _animator.Play(isFacingLeft ? "Jump_Left":"Jump_Right");
             _hangCounter -= Time.deltaTime;
             _rigidbody2D.drag = airLinearDrag;
         }
@@ -111,11 +124,14 @@ public class PlayerMovementController : MonoBehaviour
     
     private IEnumerator Dodge()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        _animator.Play("Dodge");
+        isDodging = true;
+        // gameObject.GetComponent<SpriteRenderer>().color = Color.green;
         transform.gameObject.tag = "dodging";
         yield return new WaitForSeconds(dodgeDuration);
         transform.gameObject.tag = "Player";
-        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        // gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        isDodging = false;
     }
     
     private IEnumerator ResetDodge()
@@ -142,6 +158,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Jump()
     {
+        isJumping = true;
         if (_jumpBufferCounter < 0f || _hangCounter < 0f) _doubleJumpAvailable = false;
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
         _rigidbody2D.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
@@ -165,13 +182,15 @@ public class PlayerMovementController : MonoBehaviour
     private void Run()
     {
         if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") < 0)
-            _animator.SetBool("isFacingLeft", true);
-        else if(_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
-            _animator.SetBool("isFacingLeft", false);
-        _animator.SetBool("isRunning", _rigidbody2D.velocity.x != 0);
-
+            isFacingLeft = true;
+        else if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
+            isFacingLeft = false;
+        isRunning = _rigidbody2D.velocity.x != 0;
+        if (!isJumping && !isDodging)
+        {
+            _animator.Play(isFacingLeft? "Player_Running_Left":"Player_Running_Right");    
+        }
         float fHorizontalVelocity = _rigidbody2D.velocity.x;
-
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
             fHorizontalVelocity = 0;
         else
