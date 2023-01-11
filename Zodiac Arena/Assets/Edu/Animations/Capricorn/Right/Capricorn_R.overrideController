@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Capricorn_R
+  m_Controller: {fileID: 9100000, guid: 565d7d12e4cf7ec4da79e0c9044cee4c, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9a2daaf1ca390be47b8abebecb905aae, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5cf997af2c8dbc443b3406be8500e7db, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 0cd59f45cad2ee14bb42a2b9cd5b33b0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 390c0d753bd78434b9e495410e1da7f8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 93e43a22f52f0cc4097fb1e7897e6295, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b3b9f2de37492174cbcd220e553ca890, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a2e3cebdf0a444f4d940b37c48fcb385, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c9135ff1deb2d26499e204f567ed9ac3, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d880e1936b334364f8e46c41db87b5b1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 196e4d9b3d82f60438b183fb18016999, type: 2}

@@ -8,10 +8,12 @@ public class Capricorn : MonoBehaviour
     [SerializeField] private GameObject beam;
     [SerializeField] private float velocity;
     [SerializeField] private int nShots;
+    [SerializeField] private AnimatorOverrideController leftAnimCtrl;
+    [SerializeField] private AnimatorOverrideController rightAnimCtrl;
     private Transform beamSpawn;
     private Rigidbody2D rb;
     private Animator anim;
-    private bool facedRight;
+    private bool facingRight = false;
     private bool running = false;
 
     // Start is called before the first frame update
@@ -28,65 +30,77 @@ public class Capricorn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown("left shift"))
+        if (player.position.x - transform.position.x > 0)
         {
-            ShootLaserBeam();
-        }*/
+            if (!facingRight)
+            {
+                if (running)
+                {
+                    StopDash(Vector2.right);
+                }
+                else
+                {
+                    anim.runtimeAnimatorController = rightAnimCtrl;
+                    facingRight = true;
+                }
+            }
+        }
+            
+        else
+        {
+            if (facingRight)
+            {
+                if (running)
+                {
+                    StopDash(Vector2.left);
+                }
+                else
+                {
+                    anim.runtimeAnimatorController = leftAnimCtrl;
+                    facingRight = false;
+                }
+            }
+        }
+    
+
         if (running)
         {
-            //RaycastHit2D raycastHit = Physics2D.Raycast(transform.position, player.position - beamSpawn.position,) //para jump
-            if(facedRight && transform.position.x > 6.5)
+            if(facingRight && transform.position.x > 7)
             {
-                rb.AddForce(Vector2.left * velocity);
-                running = false;
-                StartCoroutine(StartAttacks(1f));
+                StopDash(Vector2.left);
             }
-            if(!facedRight && transform.position.x < -6.5)
+            if(!facingRight && transform.position.x < -7)
             {
-                rb.AddForce(Vector2.right * velocity);
-                running = false;
-                StartCoroutine(StartAttacks(1f));
-            }
-            if(player.position.x - transform.position.x < 0)
-            {
-                if (facedRight)
-                {
-                    rb.AddForce(Vector2.left * velocity);
-                    running = false;
-                    StartCoroutine(StartAttacks(1f));
-                }
-            }
-            else
-            {
-                if (!facedRight)
-                {
-                    rb.AddForce(Vector2.right * velocity);
-                    running = false;
-                    StartCoroutine(StartAttacks(1f));
-                }
+                StopDash(Vector2.right);
             }
         }
     }
 
-    void ShootLaserBeam()
+    public void ShootLaserBeam()
     {
         beamSpawn.right = (player.position - beamSpawn.position).normalized;
         Instantiate(beam, beamSpawn.position, beamSpawn.rotation);
     }
 
-    public void Assault() // Trigger do fim da animação vai chamar esta funcao
+    public void Dash() // Trigger do fim da animação de charge chama esta funcao
     {
         running = true;
-        if (player.position.x - transform.position.x > 0)
+        if (facingRight)
         {
             rb.AddForce(Vector2.right * velocity);
-            facedRight = true;
         }
         else
         {
             rb.AddForce(Vector2.left * velocity);
-            facedRight = false;
         }
+    }
+
+    private void StopDash(Vector2 stoppingForceDirection)
+    {
+        anim.SetTrigger("stop");
+        rb.AddForce(stoppingForceDirection * velocity);
+        running = false;
+        StartCoroutine(StartAttacks(1f));
     }
 
 
@@ -95,8 +109,8 @@ public class Capricorn : MonoBehaviour
         yield return new WaitForSeconds(startTime);
         for (int i = 0; i < nShots; i++)
         {
-            ShootLaserBeam();
-            yield return new WaitForSeconds(1.5f);
+            anim.SetTrigger("shoot");
+            yield return new WaitForSeconds(2f);
         }
         yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("charge");

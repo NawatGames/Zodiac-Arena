@@ -11,15 +11,18 @@ public class Aries : MonoBehaviour
     ////////////////////[SerializeField] private GameObject KnockbackRam;
     [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
     [SerializeField] private GameObject[] KnockbackZones; // {esquerda, centro, direita}
+    [SerializeField] private AnimatorOverrideController leftAnimCtrl;
+    [SerializeField] private AnimatorOverrideController rightAnimCtrl;
     ////////////////////[SerializeField] private int kbIntensity;
     /////////////////////private playerr playerScript; // NOME ERRADO
     private Animator anim;
-    private SpriteRenderer spriteRenderer;
+    private bool facingRight = false;
+    private bool middlePos = false;
     private float spawnDelay;
     private const float ramRightSpawnX = 9.7f;
     private const float ramLeftSpawnX = -9.7f;
     private const float spawnY = -4f;
-    private const float AriesPosY = -3.885f;
+    private const float AriesPosY = -4f;
     private float[] AriesPosX = { -7, 0, 7 };
     private int posIndex = 2;
 
@@ -31,15 +34,40 @@ public class Aries : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 13);
         Physics2D.IgnoreLayerCollision(7, 12);
         Physics2D.IgnoreLayerCollision(7, 7);
+
+        Physics2D.IgnoreLayerCollision(0, 7); // Player imortal
+        Physics2D.IgnoreLayerCollision(0, 6); // Player imortal
     }
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         /////////////////////playerScript = player.GetComponent<playerr>();
         StartCoroutine(StartingGame(1f));
         spawnDelay = 1f;
+    }
+
+    private void Update()
+    {
+        if(middlePos)
+        {
+            if (player.position.x - transform.position.x > 0)
+            {
+                if (facingRight == false)
+                {
+                    facingRight = true;
+                    anim.runtimeAnimatorController = rightAnimCtrl;
+                }
+            }
+            else
+            {
+                if (facingRight == true)
+                {
+                    facingRight = false;
+                    anim.runtimeAnimatorController = leftAnimCtrl;
+                }
+            }
+        }
     }
 
     /*private void OnTriggerEnter2D(Collider2D col)
@@ -126,7 +154,7 @@ public class Aries : MonoBehaviour
         // Animação de tp para recomeçar ataque é ativada no fim de SpawnFallingRams()
     }
 
-    public void StartAttacks() // Trigger do fim da animação chamará esta função
+    public void StartAttacks() // Trigger da animação "battlecry" chamará esta função
     {
         int nGround = Random.Range(1, 6) * nFallingRams / 10;
         int nJumping = nFallingRams - nGround;
@@ -146,11 +174,29 @@ public class Aries : MonoBehaviour
                 break;
         }
     }
-    public void ChangeDirectionAndTP()
+    public void ChangeDirectionAndTP() // fim da animação tpOut chama essa função
     {
         KnockbackZones[posIndex].SetActive(false);
-        //spriteRenderer.flipY = !spriteRenderer.flipY;
-        posIndex = (posIndex + Random.Range(1, 3)) % 3;
+        //posIndex = (posIndex + Random.Range(1, 3)) % 3;
+        posIndex = 1; // Força a ir pro meio !!!!!!!!!!!!!!!
+        switch (posIndex)
+        {
+            case 0:
+                middlePos = false;
+                facingRight = true;
+                anim.runtimeAnimatorController = rightAnimCtrl;
+                break;
+            case 1:
+                middlePos = true;
+                break;
+            case 2:
+                middlePos = false;
+                facingRight = false;
+                anim.runtimeAnimatorController = leftAnimCtrl;
+                break;
+            default:
+                break;
+        }
         transform.position = new Vector2(AriesPosX[posIndex], AriesPosY);
         KnockbackZones[posIndex].SetActive(true);
     }
