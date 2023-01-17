@@ -45,12 +45,20 @@ public class ScorpioManager : MonoBehaviour
     }
 
     // Quando o Player entrar nessa área, ele morre
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.name == "Player")
-    //    {
-    //        Destroy(other.gameObject);
-    //    }
-    //}
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "Player")
+        {
+            if (animator.GetBool("Direction") == true)
+            {
+                animator.SetBool("CloseAttack", true);
+
+            }
+            if (animator.GetBool("Direction") == false)
+            {
+                animator.SetBool("CloseAttack", true);
+            }
+        }
+    }
     
 }

@@ -46,6 +46,13 @@ public class DetectDirection : MonoBehaviour
     {
         animator.SetBool("Attack", false);
     }
+    
+    //Atirar a esquerda quando o scorpio estiver a esquerda
+    void ChangeCloseAttackAnimation()
+    {
+        animator.SetBool("CloseAttack", false);
+    }
+    
     void ShootLeft()
     {
         scorpioPoison.Shoot(scorpioManager.poisonPointLeft, scorpioPoison.gameObject);
