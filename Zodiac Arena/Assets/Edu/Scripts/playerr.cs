@@ -60,6 +60,10 @@ public class playerr : MonoBehaviour
     [SerializeField] private SpriteRenderer Warning;
     private bool knockbacked = false;
 
+    [Header("Death Variables")]
+    [SerializeField] private Death_Effect deathScript;
+    private bool dead = false;
+
     private bool _canJump => _jumpBufferCounter > 0f && (_hangCounter > 0f || (_doubleJumpAvailable && doubleJump) || IsWalled());
     private bool canDodge = true;
     private void Start()
@@ -99,9 +103,10 @@ public class playerr : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Danger"))
+        if (col.gameObject.CompareTag("Danger") && !dead)
         {
             Debug.Log("Hit");
+            Die();
         }
     }
 
@@ -116,9 +121,10 @@ public class playerr : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Danger"))
+        if (col.CompareTag("Danger") && !dead)
         {
             Debug.Log("Hit");
+            Die();
         }
         if (col.CompareTag("Warning"))
             Warning.enabled = true;
@@ -127,7 +133,7 @@ public class playerr : MonoBehaviour
             Vector2 kbOrigin = col.transform.position;
             if (kbOrigin.x == 0)
             {
-                kbOrigin.x = 2 * (transform.position.x <= 0 ? 1 : -1);
+                kbOrigin.x = transform.position.x <= 0 ? 2 : -2;
             }
             else
             {
@@ -237,5 +243,10 @@ public class playerr : MonoBehaviour
     {
         yield return new WaitForSeconds(duration);
         knockbacked = false;
+    }
+    private void Die()
+    {
+        dead = true;
+        deathScript.DeathEffects();
     }
 }
