@@ -8,7 +8,7 @@ public class Aries : MonoBehaviour
     [SerializeField] private GameObject groundRam;
     [SerializeField] private GameObject jumpingRam;
     [SerializeField] private GameObject fallingRam;
-    ////////////////////[SerializeField] private GameObject KnockbackRam;
+    ////////////////////[SerializeField] private GameObject KnockbackRam; (Está no script do player)
     [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
     [SerializeField] private GameObject[] KnockbackZones; // {esquerda, centro, direita}
     [SerializeField] private AnimatorOverrideController leftAnimCtrl;
@@ -34,9 +34,6 @@ public class Aries : MonoBehaviour
         Physics2D.IgnoreLayerCollision(7, 13);
         Physics2D.IgnoreLayerCollision(7, 12);
         Physics2D.IgnoreLayerCollision(7, 7);
-
-        Physics2D.IgnoreLayerCollision(0, 7); // Player imortal
-        Physics2D.IgnoreLayerCollision(0, 6); // Player imortal
     }
 
     void Start()
@@ -177,8 +174,7 @@ public class Aries : MonoBehaviour
     public void ChangeDirectionAndTP() // fim da animação tpOut chama essa função
     {
         KnockbackZones[posIndex].SetActive(false);
-        //posIndex = (posIndex + Random.Range(1, 3)) % 3;
-        posIndex = 1; // Força a ir pro meio !!!!!!!!!!!!!!!
+        posIndex = (posIndex + Random.Range(1, 3)) % 3;
         switch (posIndex)
         {
             case 0:
