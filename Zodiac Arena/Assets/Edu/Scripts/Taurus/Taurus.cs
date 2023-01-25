@@ -27,6 +27,7 @@ public class Taurus : MonoBehaviour
 
     private IEnumerator StartAttacks()
     {
+        yield return new WaitForSeconds(2);
         while(true)
         {
             for(int i=0; i < nProjectiles; i++)

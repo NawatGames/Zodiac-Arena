@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Sawada/Scenes/MainMenu.unity
     guid: 3432ad61fc71a1d4bad438742da1ae4d
   - enabled: 1
+    path: Assets/Edu/Scenes/Aries.unity
+    guid: e9bddb1bf0e5eb642b983c8bc8a71ba1
+  - enabled: 1
     path: Assets/Sawada/Scenes/Aries.unity
     guid: 62b1f3925519e8246bf247872e425dbe
   m_configObjects: {}
