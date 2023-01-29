@@ -15,6 +15,11 @@ public class AriesKnockbackRam : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        if (transform.position.x > 0)
+        {
+            transform.Rotate(180, 0, 0);
+            Debug.Log("flippedY");
+        }
     }
 
     private void Update()

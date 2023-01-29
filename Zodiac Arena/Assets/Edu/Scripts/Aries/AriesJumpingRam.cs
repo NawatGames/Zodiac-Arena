@@ -27,9 +27,15 @@ public class AriesJumpingRam : MonoBehaviour
         rb.gravityScale = gScale;
 
         if (goRight)
+        {
             rb.AddForce(Vector2.right * velocity);
+            transform.Rotate(0, 180, 0);
+        }
         else
+        {
             rb.AddForce(Vector2.left * velocity);
+        }
+
         StartCoroutine(WaitAndJump(walkTime));
     }
 

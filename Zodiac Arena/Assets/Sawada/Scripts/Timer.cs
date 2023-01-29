@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
     public bool isTimeCounting = true;
-    public float timeRemaining = 30f;
+    public float timeRemaining;
     public Text timerTxt;
     
     void Update()
@@ -20,6 +21,7 @@ public class Timer : MonoBehaviour
         {
             isTimeCounting = false;
             Debug.Log("Tempo esgotado!!");
+            SceneManager.LoadScene("WinScreen");
         }
         DisplayTime(timeRemaining);
     }
