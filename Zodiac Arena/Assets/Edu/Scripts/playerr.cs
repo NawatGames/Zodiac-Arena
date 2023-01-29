@@ -106,7 +106,7 @@ public class playerr : MonoBehaviour
         if (col.gameObject.CompareTag("Danger") && !dead)
         {
             Debug.Log("Hit");
-            Die();
+            //Die();
         }
     }
 
