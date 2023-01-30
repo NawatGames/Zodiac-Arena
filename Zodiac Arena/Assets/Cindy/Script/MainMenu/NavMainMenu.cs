@@ -7,7 +7,12 @@ using UnityEngine.EventSystems;
 public class NavMainMenu : MonoBehaviour
 {
         public GameObject firstbutton;
-    
+
+        public void OnEnable()
+        {
+            EventSystem.current.SetSelectedGameObject(firstbutton);
+        }
+
         /// <summary>
         ///  Caso não tenha um botão selecionado, selecionar o firstButton
         /// </summary>
