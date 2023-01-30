@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Edu/Scenes/WinScreen.unity
     guid: 3851c700d285a714789fa75183632d62
+  - enabled: 1
+    path: Assets/Scenes/MainMainMenu.unity
+    guid: d03ffaaf9f7c72c4ab2bfc37940eacf4
+  - enabled: 1
+    path: Assets/Scenes/MainCapricorn.unity
+    guid: e3cb0f6d654fa724bb736be6f1e2df20
+  - enabled: 1
+    path: Assets/Scenes/MainWInScreen.unity
+    guid: ef047af55f4b20949abbd9bf828366b5
   m_configObjects: {}
