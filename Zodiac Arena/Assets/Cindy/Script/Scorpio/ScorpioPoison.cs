@@ -19,7 +19,7 @@ public class ScorpioPoison : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         scorpio = GameObject.Find("Scorpio");
     }
 

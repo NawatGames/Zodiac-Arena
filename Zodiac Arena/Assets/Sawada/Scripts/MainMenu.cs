@@ -44,7 +44,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Aries");
+            SceneManager.LoadScene("MainAries");
     }
     
     public void Taurus(GameObject button)
@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Taurus");
+            SceneManager.LoadScene("MainTaurus");
     }
 
     public void Gemini(GameObject button)
@@ -60,7 +60,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Gemini");
+            SceneManager.LoadScene("MainGemini");
     }
 
     public void Cancer(GameObject button)
@@ -68,7 +68,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Cancer");
+            SceneManager.LoadScene("MainCancer");
     }
     
     public void Leo(GameObject button)
@@ -76,7 +76,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Leo");
+            SceneManager.LoadScene("MainLeo");
     }
     
     public void Virgo(GameObject button)
@@ -84,7 +84,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Virgo");
+            SceneManager.LoadScene("MainVirgo");
     }
     
     public void Libra(GameObject button)
@@ -92,7 +92,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Libra");
+            SceneManager.LoadScene("MainLibra");
     }
     
     public void Scorpio(GameObject button)
@@ -100,7 +100,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Scorpio");
+            SceneManager.LoadScene("MainScorpio");
     }
     
     public void Sagittarius(GameObject button)
@@ -108,7 +108,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Sagittarius");
+            SceneManager.LoadScene("MainSagittarius");
     }
     
     public void Capricorn(GameObject button)
@@ -116,7 +116,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Capricorn");
+            SceneManager.LoadScene("MainCapricorn");
     }
     
     public void Aquarius(GameObject button)
@@ -124,7 +124,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Aquarius");
+            SceneManager.LoadScene("MainAquarius");
     }
     
     public void Pisces(GameObject button)
@@ -132,7 +132,7 @@ public class MainMenu : MonoBehaviour
         if(lastSelectedButton != button)
             OnSelect(button);
         else
-            SceneManager.LoadScene("Pisces");
+            SceneManager.LoadScene("MainPisces");
     }
 
     public void QuitGame()
