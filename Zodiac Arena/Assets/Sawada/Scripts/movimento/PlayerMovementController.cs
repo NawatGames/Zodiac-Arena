@@ -54,7 +54,17 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] private int dodgeCounter = 0;
     private Vector2 crouchSize;
     private Vector2 standingSize;
-    
+
+    [Header("Knockback Variables")]
+    [SerializeField] private float kbEffectDuration;
+    [SerializeField] private GameObject KnockbackRam;
+    [SerializeField] private SpriteRenderer Warning;
+    private bool knockbacked = false;
+
+    [Header("Death Variables")]
+    [SerializeField] private Death_Effect deathScript;
+    private bool dead = false;
+
     private bool _canJump => _jumpBufferCounter > 0f && (_hangCounter > 0f || (_doubleJumpAvailable && doubleJump) || IsWalled());
     private bool canDodge = true;
     private bool isFacingLeft;
@@ -95,7 +105,7 @@ public class PlayerMovementController : MonoBehaviour
             _hangCounter -= Time.deltaTime;
             _rigidbody2D.drag = airLinearDrag;
         }
-        if(_canJump) Jump();
+        if(_canJump && !knockbacked) Jump();
         FallMultiplier();
         //dodging
         if (Input.GetKey(KeyCode.Q) && canDodge)
@@ -103,6 +113,15 @@ public class PlayerMovementController : MonoBehaviour
             canDodge = false;
             StartCoroutine(Dodge());
             StartCoroutine(ResetDodge());
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Danger") && !dead)
+        {
+            Debug.Log("Hit");
+            Die();
         }
     }
 
@@ -115,9 +134,45 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Danger") && !dead)
+        {
+            Debug.Log("Hit");
+            Die();
+        }
+        if (col.CompareTag("Warning"))
+            Warning.enabled = true;
+        else if (col.CompareTag("Knockback"))
+        {
+            Vector2 kbOrigin = col.transform.position;
+            if (kbOrigin.x == 0)
+            {
+                kbOrigin.x = transform.position.x <= 0 ? 2 : -2;
+            }
+            else
+            {
+                kbOrigin.x += 0.3f * kbOrigin.x;
+                kbOrigin.y = transform.position.y; // se y > altura do chao, kb.y pode ser um pouco mais baixo p mandar mais p cima
+            }
+            GameObject obj = Instantiate(KnockbackRam, kbOrigin, transform.rotation);
+            obj.GetComponent<AriesKnockbackRam>().player = transform;
+            obj.GetComponent<AriesKnockbackRam>().playerScript = this;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Warning"))
+            Warning.enabled = false;
+    }
+
     private void FixedUpdate()
     {
-        Run();
+        if (!knockbacked)
+        {
+            Run();
+        }
         //crouching
         gameObject.transform.localScale = Input.GetKey(KeyCode.LeftControl) ? crouchSize : standingSize;
     }
@@ -171,9 +226,9 @@ public class PlayerMovementController : MonoBehaviour
         if (_rigidbody2D.velocity.y < jumpCut)
         {
             _rigidbody2D.gravityScale = fallGravityMultiplier;
-            if (IsWalled()) _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x ,-walledVelocity);
+            if (IsWalled()) _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, -walledVelocity);
         }
-        else if (_rigidbody2D.velocity.y > 0.01 && !Input.GetButton("Jump"))
+        else if (_rigidbody2D.velocity.y > 0.01 && !Input.GetButton("Jump") && !knockbacked)
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, _rigidbody2D.velocity.y * jumpCutMultiplier);
         else
             _rigidbody2D.gravityScale = 1;
@@ -197,6 +252,23 @@ public class PlayerMovementController : MonoBehaviour
             fHorizontalVelocity = Input.GetAxisRaw("Horizontal") * speed;
 
         _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
+    }
+    public void ApplyKnockBack(Vector2 direction, int intensity)
+    {
+        _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.AddForce(direction * intensity);
+        knockbacked = true;
+        StartCoroutine(Unknockback(kbEffectDuration));
+    }
+    private IEnumerator Unknockback(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        knockbacked = false;
+    }
+    private void Die()
+    {
+        dead = true;
+        deathScript.DeathEffects();
     }
 }
 

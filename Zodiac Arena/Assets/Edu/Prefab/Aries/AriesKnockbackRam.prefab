@@ -155,6 +155,7 @@ MonoBehaviour:
   playerScript: {fileID: 0}
   player: {fileID: 0}
   velocity: 20
+  kbForce: 800
 --- !u!95 &137931584338898669
 Animator:
   serializedVersion: 3

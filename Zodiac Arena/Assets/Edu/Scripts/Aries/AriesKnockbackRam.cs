@@ -7,9 +7,11 @@ public class AriesKnockbackRam : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool dashing = true;
-    public playerr playerScript;
+    private bool spawnedFromRight = false;
+    public PlayerMovementController playerScript;
     [HideInInspector] public Transform player;
     [SerializeField] private float velocity;
+    [SerializeField] private int kbForce; // 800 ideal
 
     void Start()
     {
@@ -17,8 +19,8 @@ public class AriesKnockbackRam : MonoBehaviour
         anim = GetComponent<Animator>();
         if (transform.position.x > 0)
         {
-            transform.Rotate(180, 0, 0);
-            Debug.Log("flippedY");
+            spawnedFromRight = true;
+            transform.Rotate(0, 180, 0);
         }
     }
 
@@ -27,6 +29,8 @@ public class AriesKnockbackRam : MonoBehaviour
         if (dashing)
         {
             transform.right = (player.position - transform.position).normalized;
+            if (spawnedFromRight && transform.rotation.y == 0)
+                transform.Rotate(0, 180, 180);
             rb.velocity = transform.right * velocity;
         }
     }
@@ -35,7 +39,7 @@ public class AriesKnockbackRam : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            playerScript.ApplyKnockBack(transform.right, 800);
+            playerScript.ApplyKnockBack(transform.right, kbForce);
             dashing = false;
             rb.velocity = Vector2.zero;
             anim.SetTrigger("fade");

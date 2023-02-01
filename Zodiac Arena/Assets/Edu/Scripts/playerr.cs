@@ -9,10 +9,12 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody2D))]
 public class playerr : MonoBehaviour
 {
+
     private Vector2 _direction;
     private Rigidbody2D _rigidbody2D;
     private BoxCollider2D _boxCollider2D;
     private Collider2D lastCollision;
+    private Animator _animator;
 
     [Header("Layer Masks")]
     [SerializeField] private LayerMask groundLayerMask;
@@ -54,7 +56,6 @@ public class playerr : MonoBehaviour
     private Vector2 standingSize;
 
     [Header("Knockback Variables")]
-    [SerializeField] private int kbIntensity;
     [SerializeField] private float kbEffectDuration;
     [SerializeField] private GameObject KnockbackRam;
     [SerializeField] private SpriteRenderer Warning;
@@ -106,7 +107,7 @@ public class playerr : MonoBehaviour
         if (col.gameObject.CompareTag("Danger") && !dead)
         {
             Debug.Log("Hit");
-            //Die();
+            Die();
         }
     }
 
@@ -142,7 +143,7 @@ public class playerr : MonoBehaviour
             }
             GameObject obj = Instantiate(KnockbackRam, kbOrigin, transform.rotation);
             obj.GetComponent<AriesKnockbackRam>().player = transform;
-            obj.GetComponent<AriesKnockbackRam>().playerScript = this;
+            //obj.GetComponent<AriesKnockbackRam>().playerScript = this;
         }
     }
 

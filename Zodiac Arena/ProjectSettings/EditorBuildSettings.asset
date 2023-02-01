@@ -5,21 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Sawada/Scenes/MainMenu.unity
-    guid: 3432ad61fc71a1d4bad438742da1ae4d
-  - enabled: 1
-    path: Assets/Edu/Scenes/Aries.unity
-    guid: e9bddb1bf0e5eb642b983c8bc8a71ba1
-  - enabled: 1
-    path: Assets/Sawada/Scenes/Aries.unity
-    guid: 62b1f3925519e8246bf247872e425dbe
-  - enabled: 1
-    path: Assets/Edu/Scenes/WinScreen.unity
-    guid: 3851c700d285a714789fa75183632d62
+    path: Assets/Scenes/MainCutscene.unity
+    guid: 32aed14322f953f42b3cb2f8f4143d6b
   - enabled: 1
     path: Assets/Scenes/MainMainMenu.unity
     guid: d03ffaaf9f7c72c4ab2bfc37940eacf4
