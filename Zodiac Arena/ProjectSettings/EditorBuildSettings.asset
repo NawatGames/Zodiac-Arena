@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainWInScreen.unity
     guid: ef047af55f4b20949abbd9bf828366b5
+  - enabled: 1
+    path: Assets/Scenes/MainAries.unity
+    guid: e433c3831e23dc94eb64643ff386d880
+  - enabled: 1
+    path: Assets/Scenes/MainScorpio.unity
+    guid: 47db188ac734c2d419c4339a4868f2de
   m_configObjects: {}

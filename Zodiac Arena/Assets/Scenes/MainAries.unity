@@ -271,8 +271,8 @@ MonoBehaviour:
   dodgeCounter: 0
   kbIntensity: 0
   kbEffectDuration: 0
-  KnockbackRam: {fileID: 0}
-  Warning: {fileID: 0}
+  KnockbackRam: {fileID: 3710207170695148357, guid: 3827247db4c3c8649acc078f73e4d44d, type: 3}
+  Warning: {fileID: 1307364644}
   deathScript: {fileID: 1279867602}
 --- !u!4 &516211895 stripped
 Transform:
@@ -392,6 +392,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7917783523239557289, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917783523252320714, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917783523619878067, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 7917783525033433253, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
@@ -399,6 +411,10 @@ PrefabInstance:
     - target: {fileID: 7917783525033433253, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 7917783525199458389, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7987116030608848267, guid: f46493a82e8bd4d43bce89e22f0c331c, type: 3}
       propertyPath: m_Name
