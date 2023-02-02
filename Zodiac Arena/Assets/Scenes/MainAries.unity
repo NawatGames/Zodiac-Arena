@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8730219009850604896, guid: e4a71beef2308c34386cb51d70eb9297, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8730219009850604906, guid: e4a71beef2308c34386cb51d70eb9297, type: 3}
       propertyPath: Warning
       value: 

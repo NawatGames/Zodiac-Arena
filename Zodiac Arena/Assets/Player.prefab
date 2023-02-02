@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3492569970363763104}
   - component: {fileID: 3492569970363763117}
   - component: {fileID: 3492569970363763115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,3 +160,11 @@ MonoBehaviour:
   walledVelocity: 3
   jumpBufferTime: 0.1
   hangTime: 0.1
+  crouchSizeMultiplier: 0.5
+  dodgeDelay: 1.5
+  dodgeDuration: 0.7
+  dodgeCounter: 0
+  kbEffectDuration: 0
+  KnockbackRam: {fileID: 0}
+  Warning: {fileID: 0}
+  deathScript: {fileID: 0}

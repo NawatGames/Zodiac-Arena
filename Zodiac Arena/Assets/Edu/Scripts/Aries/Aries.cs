@@ -30,10 +30,7 @@ public class Aries : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(6, 13);
         Physics2D.IgnoreLayerCollision(6, 6);
-        Physics2D.IgnoreLayerCollision(7, 6);
-        Physics2D.IgnoreLayerCollision(7, 13);
-        Physics2D.IgnoreLayerCollision(7, 12);
-        Physics2D.IgnoreLayerCollision(7, 7);
+        Physics2D.IgnoreLayerCollision(6, 7);
     }
 
     void Start()
@@ -102,7 +99,7 @@ public class Aries : MonoBehaviour
         for(int i = 0; i < nFallingRams * ramsMultiplier; i++)
         {
             spawnPos.x = Random.Range(-7.4f,7.4f);
-            GameObject obj = Instantiate(fallingRam, spawnPos, transform.rotation);
+            GameObject obj = Instantiate(fallingRam, spawnPos, Quaternion.identity);
             obj.GetComponent<AriesFallingRam>().playerPos = player.position;
             yield return new WaitForSeconds(spawnCooldown);
         }

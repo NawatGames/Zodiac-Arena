@@ -108,7 +108,7 @@ public class PlayerMovementController : MonoBehaviour
         if(_canJump && !knockbacked) Jump();
         FallMultiplier();
         //dodging
-        if (Input.GetKey(KeyCode.Q) && canDodge)
+        if (Input.GetKey(KeyCode.LeftShift) && canDodge)
         {
             canDodge = false;
             StartCoroutine(Dodge());
@@ -120,8 +120,19 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Danger") && !dead)
         {
-            Debug.Log("Hit");
-            Die();
+            if (gameObject.CompareTag("dodging"))
+            {
+                if (col.collider != lastCollision)
+                {
+                    lastCollision = col.collider;
+                    dodgeCounter++;
+                }
+            }
+            else
+            {
+                //Debug.Log("Hit");
+                Die();
+            }
         }
     }
 
@@ -136,11 +147,23 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Danger") && !dead)
+        if (col.gameObject.CompareTag("Danger") && !dead)
         {
-            Debug.Log("Hit");
-            Die();
+            if (gameObject.CompareTag("dodging"))
+            {
+                if (col != lastCollision)
+                {
+                    lastCollision = col;
+                    dodgeCounter++;
+                }
+            }
+            else
+            {
+                //Debug.Log("Hit");
+                Die();
+            }
         }
+
         if (col.CompareTag("Warning"))
             Warning.enabled = true;
         else if (col.CompareTag("Knockback"))
