@@ -241,7 +241,7 @@ public class PlayerMovementController : MonoBehaviour
         else if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
             isFacingLeft = false;
         isRunning = _rigidbody2D.velocity.x != 0;
-        if (!isJumping && !isDodging)
+        if (isRunning && !isJumping && !isDodging)
         {
             _animator.Play(isFacingLeft? "Player_Running_Left":"Player_Running_Right");    
         }
