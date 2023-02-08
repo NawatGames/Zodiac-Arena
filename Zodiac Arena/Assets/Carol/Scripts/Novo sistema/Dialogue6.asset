@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aa42bc2966f0a246a139364461bdfcb, type: 3}
-  m_Name: Dialogue2
+  m_Name: Dialogue6
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 08ed57a96a4d4ff4f821144b9eec84da, type: 3}
+  sprite: {fileID: 21300000, guid: 29a77cddf7737904f91b98d0be73b80d, type: 3}
   sentences:
-  - "Cada Deus do zod\xEDaco dedica sua vida para proteger e guiar cada ser humano
-    que passa pela Terra..."
+  - "Uma nova entidade, Ophiuchus (ou Serpent\xE1rio) havia surgido e trazido com
+    ele a incerteza e medo dos Deuses com o futuro."

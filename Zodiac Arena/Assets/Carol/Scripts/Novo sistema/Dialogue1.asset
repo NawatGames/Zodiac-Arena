@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa42bc2966f0a246a139364461bdfcb, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 4ef98534efaf4704c889e19733f1867f, type: 3}
+  sprite: {fileID: 21300000, guid: 64fcce5ad2a065f4386a5190fac19be1, type: 3}
   sentences:
-  - Olaa, como vai?
-  - Vou bem e vc?
-  - Vou bem tbm
+  - "J\xE1 \xE9 conhecido pelos humanos que ao nascer cada beb\xEA \xE9 classificado
+    a um, dentre os doze, signo do zod\xEDaco..."
