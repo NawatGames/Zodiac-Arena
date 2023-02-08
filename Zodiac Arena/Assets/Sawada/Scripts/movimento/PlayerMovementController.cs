@@ -56,7 +56,8 @@ public class PlayerMovementController : MonoBehaviour
     private Vector2 standingSize;
 
     [Header("Knockback Variables")]
-    [SerializeField] private float kbEffectDuration;
+    [SerializeField] private float kbEffectDuration; //1
+    [SerializeField] private int kbForce; //600
     [SerializeField] private GameObject KnockbackRam;
     [SerializeField] private SpriteRenderer Warning;
     private bool knockbacked = false;
@@ -281,10 +282,10 @@ public class PlayerMovementController : MonoBehaviour
         if(!dead)
             _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
     }
-    public void ApplyKnockBack(Vector2 direction, int intensity)
+    public void ApplyKnockBack(Vector2 direction) // o script da KbRam chama essa função
     {
         _rigidbody2D.velocity = Vector2.zero;
-        _rigidbody2D.AddForce(direction * intensity);
+        _rigidbody2D.AddForce(direction * kbForce);
         knockbacked = true;
         StartCoroutine(Unknockback(kbEffectDuration));
     }

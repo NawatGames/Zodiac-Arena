@@ -166,6 +166,7 @@ MonoBehaviour:
   dodgeDuration: 0.7
   dodgeCounter: 0
   kbEffectDuration: 1
+  kbForce: 600
   KnockbackRam: {fileID: 3710207170695148357, guid: 3827247db4c3c8649acc078f73e4d44d, type: 3}
   Warning: {fileID: 0}
   deathScript: {fileID: 0}

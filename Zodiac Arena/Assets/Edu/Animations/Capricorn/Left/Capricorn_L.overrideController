@@ -8,10 +8,4 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Capricorn_L
   m_Controller: {fileID: 9100000, guid: 565d7d12e4cf7ec4da79e0c9044cee4c, type: 2}
-  m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 93e43a22f52f0cc4097fb1e7897e6295, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 93e43a22f52f0cc4097fb1e7897e6295, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 0cd59f45cad2ee14bb42a2b9cd5b33b0, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 0cd59f45cad2ee14bb42a2b9cd5b33b0, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: 9a2daaf1ca390be47b8abebecb905aae, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 9a2daaf1ca390be47b8abebecb905aae, type: 2}
+  m_Clips: []
