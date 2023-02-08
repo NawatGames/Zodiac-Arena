@@ -101,12 +101,12 @@ public class Capricorn : MonoBehaviour
         rb.AddForce(stoppingForceDirection * velocity);
         running = false;
         StartCoroutine(StartAttacks(1f));
+        Debug.Log("Stopped dash");
     }
 
 
     private IEnumerator StartAttacks(float startTime)
     {
-        //IF TIME SCALE != 0 -> SET TRIGGER ???
         yield return new WaitForSeconds(startTime);
         for (int i = 0; i < nShots; i++)
         {

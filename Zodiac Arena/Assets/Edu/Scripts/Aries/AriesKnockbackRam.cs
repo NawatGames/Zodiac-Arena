@@ -11,7 +11,6 @@ public class AriesKnockbackRam : MonoBehaviour
     public PlayerMovementController playerScript;
     [HideInInspector] public Transform player;
     [SerializeField] private float velocity;
-    [SerializeField] private int kbForce; // 800 ideal
 
     void Start()
     {
@@ -39,7 +38,7 @@ public class AriesKnockbackRam : MonoBehaviour
     {
         if (col.CompareTag("Player") || col.CompareTag("dodging"))
         {
-            playerScript.ApplyKnockBack(transform.right, kbForce);
+            playerScript.ApplyKnockBack(transform.right);
             dashing = false;
             rb.velocity = Vector2.zero;
             anim.SetTrigger("fade");
