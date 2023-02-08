@@ -43,6 +43,8 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] public float jumpBufferTime = 0.1f;
     private float _hangCounter = 0;
     [SerializeField] public float hangTime = 0.1f;
+    private float _walledJumpCounter = 0;
+    [SerializeField] public float walledJumpTime = 0.1f;
 
     [Header("Player Variables")]
     [SerializeField] [Range(0, 1)] public float crouchSizeMultiplier = 0.5f;
@@ -88,14 +90,18 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         //jumping
-        if (!dead && !PauseMenu.paused && Input.GetButtonDown("Jump"))
-            _jumpBufferCounter = jumpBufferTime;
-        else _jumpBufferCounter -= Time.deltaTime;
+        if (!dead && !PauseMenu.paused)
+            if(Input.GetButtonDown("Jump"))
+                _jumpBufferCounter = jumpBufferTime;
+            else _jumpBufferCounter -= Time.deltaTime;
 
         if (IsWalled())
         {
-            if(!isDodging)_animator.Play(isFacingLeft ? "Slide_Left" : "Slide_Right");
+            if (!isDodging) _animator.Play(isFacingLeft ? "Slide_Left" : "Slide_Right");
+            _walledJumpCounter = walledJumpTime;
         }
+        else _walledJumpCounter -= Time.deltaTime;
+        
         if (IsGrounded() || IsWalled())
         {
             if (_jumpBufferCounter < 0 && _rigidbody2D.velocity.y == 0)
@@ -110,7 +116,10 @@ public class PlayerMovementController : MonoBehaviour
         else
         {
             if(!isDodging)
-                _animator.Play(isFacingLeft ? "Jump_Left":"Jump_Right");
+                if(_walledJumpCounter > 0)
+                    _animator.Play(isFacingLeft ? "Walled_Jump_Left":"Walled_Jump_Right");
+                else    
+                    _animator.Play(isFacingLeft ? "Jump_Left":"Jump_Right");
             _hangCounter -= Time.deltaTime;
             _rigidbody2D.drag = airLinearDrag;
         }
