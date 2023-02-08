@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7917783523239557294}
   - component: {fileID: 7917783523239557295}
   - component: {fileID: 7917783523239557288}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ParedeEsquerda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7917783523239557289}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.05966, y: -0.35601133, z: 7.2295136}
+  m_LocalPosition: {x: -8.91, y: -0.35601133, z: 7.2295136}
   m_LocalScale: {x: 7.872527, y: 7.872527, z: 1}
   m_Children: []
   m_Father: {fileID: 2600273935399563085}
@@ -143,9 +143,10 @@ GameObject:
   - component: {fileID: 7917783523252320713}
   - component: {fileID: 7917783523252320719}
   - component: {fileID: 7917783523252320718}
-  m_Layer: 8
+  - component: {fileID: 1511125027}
+  m_Layer: 12
   m_Name: Chao
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,6 +263,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 19.16016, y: 1.3024149}
   m_EdgeRadius: 0
+--- !u!114 &1511125027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917783523252320714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8885e5d0054ff424ea86a307cab2f3b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7917783523619878067
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +287,7 @@ GameObject:
   - component: {fileID: 7917783523619878064}
   - component: {fileID: 7917783523619878065}
   - component: {fileID: 7917783523619878066}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ParedeDireita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7917783523619878067}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.42454, y: -0.23021135, z: 7.2295136}
+  m_LocalPosition: {x: 8.9, y: -0.23021135, z: 7.2295136}
   m_LocalScale: {x: 7.972482, y: 7.972482, z: 1}
   m_Children: []
   m_Father: {fileID: 2600273935399563085}
@@ -419,7 +432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7917783525033433248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08284019, y: -0.32241133, z: 7.2295136}
+  m_LocalPosition: {x: -0.01, y: -0.59, z: 7.2295136}
   m_LocalScale: {x: 0.8684597, y: 0.8684597, z: 0.8684597}
   m_Children: []
   m_Father: {fileID: 2600273935399563085}
@@ -507,7 +520,7 @@ GameObject:
   - component: {fileID: 7917783525199458410}
   - component: {fileID: 7917783525199458411}
   - component: {fileID: 7917783525199458388}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Teto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7917783525199458389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08545981, y: 5.483389, z: 7.2295136}
+  m_LocalPosition: {x: 0.06, y: 5.21, z: 7.2295136}
   m_LocalScale: {x: 0.9480145, y: 0.9480145, z: 1}
   m_Children: []
   m_Father: {fileID: 2600273935399563085}
@@ -567,7 +580,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e04af1ed82ef64b4c8d9e979a95da31a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -651,7 +664,7 @@ Transform:
   m_GameObject: {fileID: 7987116030608848267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.10545981, y: 0.33021134, z: -7.2295136}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.8778, z: 1}
   m_Children:
   - {fileID: 7917783525033433253}
   - {fileID: 7917783523252320712}

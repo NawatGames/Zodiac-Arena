@@ -72,6 +72,10 @@ public class PlayerMovementController : MonoBehaviour
     private bool isJumping;
     private bool isRunning;
 
+    private void Awake()
+    {
+        Physics2D.IgnoreLayerCollision(7, 8);
+    }
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -84,7 +88,8 @@ public class PlayerMovementController : MonoBehaviour
     private void Update()
     {
         //jumping
-        if (Input.GetButtonDown("Jump")) _jumpBufferCounter = jumpBufferTime;
+        if (!dead && !PauseMenu.paused && Input.GetButtonDown("Jump"))
+            _jumpBufferCounter = jumpBufferTime;
         else _jumpBufferCounter -= Time.deltaTime;
 
         if (IsWalled())
@@ -112,7 +117,7 @@ public class PlayerMovementController : MonoBehaviour
         if(_canJump && !knockbacked) Jump();
         FallMultiplier();
         //dodging
-        if (Input.GetKey(KeyCode.Q) && canDodge)
+        if (!dead && !PauseMenu.paused && Input.GetKey(KeyCode.LeftShift) && canDodge)
         {
             canDodge = false;
             StartCoroutine(Dodge());
@@ -124,8 +129,19 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Danger") && !dead)
         {
-            Debug.Log("Hit");
-            Die();
+            if (gameObject.CompareTag("dodging"))
+            {
+                if (col.collider != lastCollision)
+                {
+                    lastCollision = col.collider;
+                    dodgeCounter++;
+                }
+            }
+            else
+            {
+                //Debug.Log("Hit");
+                Die();
+            }
         }
     }
 
@@ -140,11 +156,23 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Danger") && !dead)
+        if (col.gameObject.CompareTag("Danger") && !dead)
         {
-            Debug.Log("Hit");
-            Die();
+            if (gameObject.CompareTag("dodging"))
+            {
+                if (col != lastCollision)
+                {
+                    lastCollision = col;
+                    dodgeCounter++;
+                }
+            }
+            else
+            {
+                //Debug.Log("Hit");
+                Die();
+            }
         }
+
         if (col.CompareTag("Warning"))
             Warning.enabled = true;
         else if (col.CompareTag("Knockback"))
@@ -178,7 +206,7 @@ public class PlayerMovementController : MonoBehaviour
             Run();
         }
         //crouching
-        gameObject.transform.localScale = Input.GetKey(KeyCode.LeftControl) ? crouchSize : standingSize;
+        gameObject.transform.localScale = !dead && !PauseMenu.paused && Input.GetKey(KeyCode.LeftControl) ? crouchSize : standingSize;
     }
     
     private IEnumerator Dodge()
@@ -240,9 +268,9 @@ public class PlayerMovementController : MonoBehaviour
     
     private void Run()
     {
-        if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") < 0)
+        if (!dead && !PauseMenu.paused && _rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") < 0)
             isFacingLeft = true;
-        else if (_rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
+        else if (!dead && !PauseMenu.paused && _rigidbody2D.velocity.x != 0 && Input.GetAxisRaw("Horizontal") > 0)
             isFacingLeft = false;
         isRunning = _rigidbody2D.velocity.x != 0;
         if (isRunning && !isJumping && !isDodging)
@@ -254,8 +282,8 @@ public class PlayerMovementController : MonoBehaviour
             fHorizontalVelocity = 0;
         else
             fHorizontalVelocity = Input.GetAxisRaw("Horizontal") * speed;
-
-        _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
+        if(!dead)
+            _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
     }
     public void ApplyKnockBack(Vector2 direction, int intensity)
     {

@@ -9,15 +9,14 @@ public class AriesFallingRam : MonoBehaviour
     private Vector2 direction;
     public Vector2 playerPos;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DestroyThis(3f));
         rb = GetComponent<Rigidbody2D>();
         direction = playerPos - new Vector2 (transform.position.x, transform.position.y);
+        transform.right = direction;
         if (direction.x < 0)
             transform.Rotate(180, 0, 0);
-        transform.right = direction;
         velocity = Random.Range(12f,15f);
         rb.AddForce(new Vector2 (direction.x, 25f).magnitude * velocity * direction.normalized);
        

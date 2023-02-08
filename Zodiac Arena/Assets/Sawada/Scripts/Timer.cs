@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
         {
             isTimeCounting = false;
             Debug.Log("Tempo esgotado!!");
-            SceneManager.LoadScene("WinScreen");
+            SceneManager.LoadScene("MainWinScreen");
         }
         DisplayTime(timeRemaining);
     }

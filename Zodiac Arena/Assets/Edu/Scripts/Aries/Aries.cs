@@ -9,16 +9,19 @@ public class Aries : MonoBehaviour
     [SerializeField] private GameObject jumpingRam;
     [SerializeField] private GameObject fallingRam;
     ////////////////////[SerializeField] private GameObject KnockbackRam; (Está no script do player)
-    [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
     [SerializeField] private GameObject[] KnockbackZones; // {esquerda, centro, direita}
     [SerializeField] private AnimatorOverrideController leftAnimCtrl;
     [SerializeField] private AnimatorOverrideController rightAnimCtrl;
     ////////////////////[SerializeField] private int kbIntensity;
     /////////////////////private playerr playerScript; // NOME ERRADO
+
+    [Header("Parameters")]
+    [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
+    [SerializeField] private float spawnDelay; // 1 segundo
+
     private Animator anim;
     private bool facingRight = false;
     private bool middlePos = false;
-    private float spawnDelay;
     private const float ramRightSpawnX = 9.7f;
     private const float ramLeftSpawnX = -9.7f;
     private const float spawnY = -4f;
@@ -28,12 +31,8 @@ public class Aries : MonoBehaviour
 
     void Awake()
     {
-        Physics2D.IgnoreLayerCollision(6, 13);
-        Physics2D.IgnoreLayerCollision(6, 6);
-        Physics2D.IgnoreLayerCollision(7, 6);
-        Physics2D.IgnoreLayerCollision(7, 13);
-        Physics2D.IgnoreLayerCollision(7, 12);
-        Physics2D.IgnoreLayerCollision(7, 7);
+        Physics2D.IgnoreLayerCollision(8, 13);
+        Physics2D.IgnoreLayerCollision(8, 6);
     }
 
     void Start()
@@ -41,7 +40,6 @@ public class Aries : MonoBehaviour
         anim = GetComponent<Animator>();
         /////////////////////playerScript = player.GetComponent<playerr>();
         StartCoroutine(StartingGame(1f));
-        spawnDelay = 1f;
     }
 
     private void Update()
@@ -67,31 +65,10 @@ public class Aries : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            Vector2 kbOrigin;
-            if (posIndex == 1)
-            {
-                kbOrigin.x = 2 * (player.position.x <= 0 ? 1 : -1);
-                kbOrigin.y = AriesPosY;
-            }
-            else
-            {
-                kbOrigin.x = AriesPosX[posIndex] * 1.3f;
-                kbOrigin.y = player.position.y; // se y > altura do chao, kb.y pode ser um pouco mais baixo p mandar mais p cima
-            }
-            Vector2 dir = (new Vector2(player.position.x, player.position.y) - kbOrigin).normalized;
-            GameObject obj = Instantiate(KnockbackRam,kbOrigin,transform.rotation);
-            obj.GetComponent<AriesKnockbackRam>().direction = dir;
-            playerScript.ApplyKnockBack(dir, kbIntensity);
-        }
-    }*/
-
     private IEnumerator StartingGame(float wait)
     {
         yield return new WaitForSeconds(wait);
+        //IF TIME SCALE != 0 -> SET TRIGGER
         anim.SetTrigger("battleCry");
     }
 
@@ -102,7 +79,7 @@ public class Aries : MonoBehaviour
         for(int i = 0; i < nFallingRams * ramsMultiplier; i++)
         {
             spawnPos.x = Random.Range(-7.4f,7.4f);
-            GameObject obj = Instantiate(fallingRam, spawnPos, transform.rotation);
+            GameObject obj = Instantiate(fallingRam, spawnPos, Quaternion.identity);
             obj.GetComponent<AriesFallingRam>().playerPos = player.position;
             yield return new WaitForSeconds(spawnCooldown);
         }
@@ -174,7 +151,9 @@ public class Aries : MonoBehaviour
     public void ChangeDirectionAndTP() // fim da animação tpOut chama essa função
     {
         KnockbackZones[posIndex].SetActive(false);
+        Debug.Log("pos atual = " + posIndex);
         posIndex = (posIndex + Random.Range(1, 3)) % 3;
+        Debug.Log("nova pos = " + posIndex);
         switch (posIndex)
         {
             case 0:
