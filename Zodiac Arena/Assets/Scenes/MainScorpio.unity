@@ -357,7 +357,6 @@ MonoBehaviour:
   dodgeDelay: 1.5
   dodgeDuration: 0.7
   dodgeCounter: 0
-  kbIntensity: 0
   kbEffectDuration: 0
   KnockbackRam: {fileID: 0}
   Warning: {fileID: 0}
@@ -753,6 +752,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8730219009850604896, guid: e4a71beef2308c34386cb51d70eb9297, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730219009850604896, guid: e4a71beef2308c34386cb51d70eb9297, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8730219009850604911, guid: e4a71beef2308c34386cb51d70eb9297, type: 3}
