@@ -19,7 +19,7 @@ public class ScorpioPoison : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.Find("Player");
         scorpio = GameObject.Find("Scorpio");
     }
 
@@ -38,6 +38,7 @@ public class ScorpioPoison : MonoBehaviour
     // Movimentação em segundo grau do veneno, seguindo o player 
     public void PosionMove(Rigidbody2D rb, float speed, float speed2)
     {
+        print(player.transform.position);
         Vector2 distance = player.transform.position - scorpio.transform.position;
         rb.velocity = transform.right * distance.x * Random.Range(0, speed) +
                       transform.up * distance.y * Random.Range(0, speed2);
