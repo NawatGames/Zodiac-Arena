@@ -17,7 +17,7 @@ public class Aries : MonoBehaviour
 
     [Header("Parameters")]
     [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
-    [SerializeField] private float spawnDelay;
+    [SerializeField] private float spawnDelay; // 1 segundo
 
     private Animator anim;
     private bool facingRight = false;
