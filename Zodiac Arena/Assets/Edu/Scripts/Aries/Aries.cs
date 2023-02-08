@@ -9,16 +9,19 @@ public class Aries : MonoBehaviour
     [SerializeField] private GameObject jumpingRam;
     [SerializeField] private GameObject fallingRam;
     ////////////////////[SerializeField] private GameObject KnockbackRam; (Está no script do player)
-    [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
     [SerializeField] private GameObject[] KnockbackZones; // {esquerda, centro, direita}
     [SerializeField] private AnimatorOverrideController leftAnimCtrl;
     [SerializeField] private AnimatorOverrideController rightAnimCtrl;
     ////////////////////[SerializeField] private int kbIntensity;
     /////////////////////private playerr playerScript; // NOME ERRADO
+
+    [Header("Parameters")]
+    [SerializeField] private int nFallingRams; //   Numero total de Rams = 2*nFallingRams
+    [SerializeField] private float spawnDelay;
+
     private Animator anim;
     private bool facingRight = false;
     private bool middlePos = false;
-    private float spawnDelay;
     private const float ramRightSpawnX = 9.7f;
     private const float ramLeftSpawnX = -9.7f;
     private const float spawnY = -4f;
@@ -37,7 +40,6 @@ public class Aries : MonoBehaviour
         anim = GetComponent<Animator>();
         /////////////////////playerScript = player.GetComponent<playerr>();
         StartCoroutine(StartingGame(1f));
-        spawnDelay = 1f;
     }
 
     private void Update()

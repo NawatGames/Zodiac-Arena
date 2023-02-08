@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        paused = false;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
