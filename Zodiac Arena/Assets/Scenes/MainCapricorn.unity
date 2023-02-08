@@ -309,7 +309,6 @@ MonoBehaviour:
   dodgeDelay: 1.5
   dodgeDuration: 0.7
   dodgeCounter: 0
-  kbIntensity: 0
   kbEffectDuration: 0
   KnockbackRam: {fileID: 0}
   Warning: {fileID: 0}
