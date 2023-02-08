@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8730219009850604906}
   - component: {fileID: 8730219009850604909}
   - component: {fileID: 8730219009850604907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8730219009850604896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2895749, y: -3.8332534, z: 0}
+  m_LocalPosition: {x: -6, y: -3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -148,10 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4096
   wallLayerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8192
   speed: 7
   jumpVelocity: 15
   fallGravityMultiplier: 4
@@ -166,6 +166,10 @@ MonoBehaviour:
   dodgeDelay: 2
   dodgeDuration: 0.7
   dodgeCounter: 0
+  kbEffectDuration: 1
+  KnockbackRam: {fileID: 3710207170695148357, guid: 3827247db4c3c8649acc078f73e4d44d, type: 3}
+  Warning: {fileID: 0}
+  deathScript: {fileID: 0}
 --- !u!114 &8730219009850604909
 MonoBehaviour:
   m_ObjectHideFlags: 0

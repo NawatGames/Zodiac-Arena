@@ -106,6 +106,7 @@ public class Capricorn : MonoBehaviour
 
     private IEnumerator StartAttacks(float startTime)
     {
+        //IF TIME SCALE != 0 -> SET TRIGGER ???
         yield return new WaitForSeconds(startTime);
         for (int i = 0; i < nShots; i++)
         {

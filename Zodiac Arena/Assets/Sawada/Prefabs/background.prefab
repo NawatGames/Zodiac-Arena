@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7917783523239557294}
   - component: {fileID: 7917783523239557295}
   - component: {fileID: 7917783523239557288}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ParedeEsquerda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 7917783523252320713}
   - component: {fileID: 7917783523252320719}
   - component: {fileID: 7917783523252320718}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Chao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 7917783523619878064}
   - component: {fileID: 7917783523619878065}
   - component: {fileID: 7917783523619878066}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: ParedeDireita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 7917783525199458410}
   - component: {fileID: 7917783525199458411}
   - component: {fileID: 7917783525199458388}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Teto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
