@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1510993427356102270}
   - component: {fileID: 1510993427356102271}
   - component: {fileID: 1510993427356102256}
-  - component: {fileID: 1510993427356102257}
   - component: {fileID: 1510993427356102259}
+  - component: {fileID: 2107023228659694215}
+  - component: {fileID: 9167079233718651619}
   m_Layer: 6
   m_Name: CapricornBeam
   m_TagString: Danger
@@ -83,7 +84,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 2
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &1510993427356102256
 Rigidbody2D:
@@ -106,28 +107,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!68 &1510993427356102257
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510993427356102260}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.4635167, y: -0.03221035}
-  - {x: 0.40262866, y: -0.03221035}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!114 &1510993427356102259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +119,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb69d074757cb04bba015fec1c01ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxBounces: 5
-  lifetime: 12
+  maxBounces: 7
+  lifetime: 8
   speed: 12
-  beamTrail: {fileID: 2255089277296663947, guid: 0afb4d06f64083b4fbc4521ac0326dbb, type: 3}
+--- !u!60 &2107023228659694215
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510993427356102260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 6.53, y: 4.78}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.252995, y: 0.031872272}
+      - {x: -0.4605322, y: -0.04768634}
+      - {x: 0.33448982, y: -0.1761558}
+      - {x: 0.39340186, y: 0.0809021}
+--- !u!95 &9167079233718651619
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510993427356102260}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 10dc154065ff20b43be4a97789397eff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

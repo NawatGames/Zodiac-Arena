@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinScreen : MonoBehaviour
+public class SceneTransition : MonoBehaviour
 {
-    public void GoToMainMenu()
+    public void ChangeScene()
     {
         SceneManager.LoadScene("MainMainMenu");
     }
+
+
 }
