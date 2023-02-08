@@ -28,9 +28,8 @@ public class Aries : MonoBehaviour
 
     void Awake()
     {
-        Physics2D.IgnoreLayerCollision(6, 13);
-        Physics2D.IgnoreLayerCollision(6, 6);
-        Physics2D.IgnoreLayerCollision(6, 7);
+        Physics2D.IgnoreLayerCollision(8, 13);
+        Physics2D.IgnoreLayerCollision(8, 6);
     }
 
     void Start()
@@ -64,31 +63,10 @@ public class Aries : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.CompareTag("Player"))
-        {
-            Vector2 kbOrigin;
-            if (posIndex == 1)
-            {
-                kbOrigin.x = 2 * (player.position.x <= 0 ? 1 : -1);
-                kbOrigin.y = AriesPosY;
-            }
-            else
-            {
-                kbOrigin.x = AriesPosX[posIndex] * 1.3f;
-                kbOrigin.y = player.position.y; // se y > altura do chao, kb.y pode ser um pouco mais baixo p mandar mais p cima
-            }
-            Vector2 dir = (new Vector2(player.position.x, player.position.y) - kbOrigin).normalized;
-            GameObject obj = Instantiate(KnockbackRam,kbOrigin,transform.rotation);
-            obj.GetComponent<AriesKnockbackRam>().direction = dir;
-            playerScript.ApplyKnockBack(dir, kbIntensity);
-        }
-    }*/
-
     private IEnumerator StartingGame(float wait)
     {
         yield return new WaitForSeconds(wait);
+        //IF TIME SCALE != 0 -> SET TRIGGER
         anim.SetTrigger("battleCry");
     }
 
@@ -171,7 +149,9 @@ public class Aries : MonoBehaviour
     public void ChangeDirectionAndTP() // fim da animação tpOut chama essa função
     {
         KnockbackZones[posIndex].SetActive(false);
+        Debug.Log("pos atual = " + posIndex);
         posIndex = (posIndex + Random.Range(1, 3)) % 3;
+        Debug.Log("nova pos = " + posIndex);
         switch (posIndex)
         {
             case 0:

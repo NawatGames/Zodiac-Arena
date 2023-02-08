@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 933917038355149521}
   - component: {fileID: 4621130910588808670}
   - component: {fileID: 3488937306583725530}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: AriesJumpingRam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2374135468576269961}
   - component: {fileID: 2041155555207786169}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trigger
   m_TagString: Danger
   m_Icon: {fileID: 0}

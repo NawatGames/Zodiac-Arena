@@ -13,7 +13,6 @@ public class Death_Effect : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1;
         sceneIndex = SceneManager.GetActiveScene().buildIndex;
         //Debug.Log("Current deaths: " + EnemyDeaths[sceneIndex]);
         //Debug.Log("sceneIndex: " + sceneIndex);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6363828174826958975}
   - component: {fileID: 5269840550486850892}
   - component: {fileID: 8251701974212039236}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: AriesGroundRam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8324119398909143019}
   - component: {fileID: 194780702551369181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: trigger
   m_TagString: Danger
   m_Icon: {fileID: 0}
