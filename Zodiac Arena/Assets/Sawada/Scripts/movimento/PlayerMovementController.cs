@@ -274,12 +274,12 @@ public class PlayerMovementController : MonoBehaviour
             _animator.Play(isFacingLeft? "Player_Running_Left":"Player_Running_Right");    
         }
         float fHorizontalVelocity = _rigidbody2D.velocity.x;
-        if (dead || Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 0.01f)
             fHorizontalVelocity = 0;
         else
             fHorizontalVelocity = Input.GetAxisRaw("Horizontal") * speed;
-
-        _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
+        if(!dead)
+            _rigidbody2D.velocity = new Vector2(fHorizontalVelocity, _rigidbody2D.velocity.y);
     }
     public void ApplyKnockBack(Vector2 direction, int intensity)
     {

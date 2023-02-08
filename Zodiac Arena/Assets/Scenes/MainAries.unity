@@ -949,13 +949,14 @@ MonoBehaviour:
   groundRam: {fileID: 6363828174826958972, guid: a976ca52a3b019541920632ef651d6b0, type: 3}
   jumpingRam: {fileID: 4621130910588808671, guid: a545f67270772a545b31cadee837ed74, type: 3}
   fallingRam: {fileID: 7095451132734870937, guid: ab4c38d54505f204893c0a56d928b78d, type: 3}
-  nFallingRams: 6
   KnockbackZones:
   - {fileID: 1020778187}
   - {fileID: 184089696}
   - {fileID: 562790824}
   leftAnimCtrl: {fileID: 22100000, guid: 3f52a56e223d5d8468a741bd7d2245b2, type: 2}
   rightAnimCtrl: {fileID: 22100000, guid: 8a4d1082e8c2b5a49b6cef86bf815a3c, type: 2}
+  nFallingRams: 6
+  spawnDelay: 1.5
 --- !u!212 &1776621014
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8730219009850604897}
   - component: {fileID: 8730219009850604908}
   - component: {fileID: 8730219009850604906}
-  - component: {fileID: 8730219009850604909}
   - component: {fileID: 8730219009850604907}
   m_Layer: 7
   m_Name: Player
@@ -170,19 +169,6 @@ MonoBehaviour:
   KnockbackRam: {fileID: 3710207170695148357, guid: 3827247db4c3c8649acc078f73e4d44d, type: 3}
   Warning: {fileID: 0}
   deathScript: {fileID: 0}
---- !u!114 &8730219009850604909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8730219009850604896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 999a4e8fdf0f9834aafcdc3a15f722f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialPauseTime: 3
 --- !u!95 &8730219009850604907
 Animator:
   serializedVersion: 3

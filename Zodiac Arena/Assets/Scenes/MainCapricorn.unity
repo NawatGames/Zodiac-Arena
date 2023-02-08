@@ -367,30 +367,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003952, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 368.8668
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003952, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 96.2463
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003952, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003952, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 483
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003958, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003958, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 80
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
 --- !u!1001 &1098546328
