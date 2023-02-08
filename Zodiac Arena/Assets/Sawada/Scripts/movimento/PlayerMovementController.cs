@@ -91,7 +91,11 @@ public class PlayerMovementController : MonoBehaviour
         if (!dead && !PauseMenu.paused && Input.GetButtonDown("Jump"))
             _jumpBufferCounter = jumpBufferTime;
         else _jumpBufferCounter -= Time.deltaTime;
-   
+
+        if (IsWalled())
+        {
+            if(!isDodging)_animator.Play(isFacingLeft ? "Slide_Left" : "Slide_Right");
+        }
         if (IsGrounded() || IsWalled())
         {
             if (_jumpBufferCounter < 0 && _rigidbody2D.velocity.y == 0)
