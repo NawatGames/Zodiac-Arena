@@ -23,7 +23,7 @@ public class ScorpioManager : MonoBehaviour
     // Atacar após um tempo
     IEnumerator ExecuteAfterTime(float time)
     {
-        if (isCoroutineExecuting)
+        if (isCoroutineExecuting || animator.GetCurrentAnimatorStateInfo(0).IsName("attack_left") || animator.GetCurrentAnimatorStateInfo(0).IsName("attack_right"))
             yield break;
         
         isCoroutineExecuting = true;
