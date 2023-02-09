@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 2c22d53420f569144aa804e87f60d41d, type: 3}
   sentences:
-  - "Assim, \xE9 decidido coloca-l\xF4 em uma arena para testar suas habilidades..."
-  - " E ao fim, deliberar se este \xE9 digno de se juntar aos doze originais em suas
-    responsabilidades com a terra."
+  - Therefore, it is decided to place him in an arena to test his skills...
+  - And at the end, deliberate whether he is worthy to join the original twelve in
+    their responsibilities to Earth.

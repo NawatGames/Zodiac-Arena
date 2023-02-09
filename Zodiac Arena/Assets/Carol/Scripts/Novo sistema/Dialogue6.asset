@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 29a77cddf7737904f91b98d0be73b80d, type: 3}
   sentences:
-  - "Uma nova entidade, Ophiuchus (ou Serpent\xE1rio) havia surgido e trazido com
-    ele a incerteza e medo dos Deuses com o futuro."
+  - A new entity, Ophiuchus (or Serpentarium) had arisen and brought with it the
+    uncertainty and fear of the Gods for the future.

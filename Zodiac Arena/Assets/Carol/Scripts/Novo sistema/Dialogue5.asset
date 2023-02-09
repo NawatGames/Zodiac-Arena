@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b11e177adbab64b419e55ed3d2aae415, type: 3}
   sentences:
-  - "Em um dia como qualquer outro, o nascimento de uma nova constela\xE7\xE3o amea\xE7ou
-    destruir a paz estabelecida pelos Deuses originais."
+  - On a day like any other, the birth of a new constellation threatened to destroy
+    the peace established by the original Gods.

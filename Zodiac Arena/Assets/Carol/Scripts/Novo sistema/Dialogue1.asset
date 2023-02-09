@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 64fcce5ad2a065f4386a5190fac19be1, type: 3}
   sentences:
-  - "J\xE1 \xE9 conhecido pelos humanos que ao nascer cada beb\xEA \xE9 classificado
-    a um, dentre os doze, signo do zod\xEDaco..."
+  - It is well known by humans that at birth each baby is classified to one, among
+    the twelve, zodiac sign...

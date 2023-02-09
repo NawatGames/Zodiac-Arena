@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 8aa5d6bd5f1c7224b98b0275b9387f8f, type: 3}
   sentences:
-  - "A vida n\xE3o podia ser melhor, com todos em completa hamonia e equil\xEDbrio
-    a s\xE9culos"
+  - Life couldn't be better, with everyone in complete harmony and balance for centuries...
