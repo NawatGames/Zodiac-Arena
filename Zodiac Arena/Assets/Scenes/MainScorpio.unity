@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 710044033}
   m_Layer: 0
   m_Name: Scorpio
-  m_TagString: Danger
+  m_TagString: Scorpio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,7 +463,7 @@ MonoBehaviour:
   poisonPointRight: {fileID: 168281144}
   poisonPointLeft: {fileID: 1481096620}
   scorpioPoison: {fileID: 6248994745087716372, guid: c35b38467f048e44ebb2147789fdeea0, type: 3}
-  timeinseconds: 2
+  timeinseconds: 0.1
   animator: {fileID: 710044034}
 --- !u!50 &710044037
 Rigidbody2D:
