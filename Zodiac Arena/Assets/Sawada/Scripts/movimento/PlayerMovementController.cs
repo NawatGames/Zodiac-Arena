@@ -137,9 +137,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Danger") && !dead)
+        if ((col.gameObject.CompareTag("Danger") || col.gameObject.CompareTag("Scorpio")) && !dead)
         {
-            if (gameObject.CompareTag("dodging"))
+            if (gameObject.CompareTag("dodging") && !col.gameObject.CompareTag("Scorpio"))
             {
                 if (col.collider != lastCollision)
                 {
@@ -166,9 +166,9 @@ public class PlayerMovementController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Danger") && !dead)
+        if ((col.gameObject.CompareTag("Danger") || col.gameObject.CompareTag("Scorpio")) && !dead)
         {
-            if (gameObject.CompareTag("dodging"))
+            if (gameObject.CompareTag("dodging") && !col.gameObject.CompareTag("Scorpio"))
             {
                 if (col != lastCollision)
                 {
