@@ -20,7 +20,8 @@ public class Timer : MonoBehaviour
         else
         {
             isTimeCounting = false;
-            Debug.Log("Tempo esgotado!!");
+            //Debug.Log("Tempo esgotado!!");
+            WinScreen.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene("MainWinScreen");
         }
         DisplayTime(timeRemaining);

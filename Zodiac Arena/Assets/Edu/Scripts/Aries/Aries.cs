@@ -151,9 +151,7 @@ public class Aries : MonoBehaviour
     public void ChangeDirectionAndTP() // fim da animação tpOut chama essa função
     {
         KnockbackZones[posIndex].SetActive(false);
-        Debug.Log("pos atual = " + posIndex);
         posIndex = (posIndex + Random.Range(1, 3)) % 3;
-        Debug.Log("nova pos = " + posIndex);
         switch (posIndex)
         {
             case 0:
