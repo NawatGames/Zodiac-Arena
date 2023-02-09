@@ -1138,9 +1138,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6599534515644003953, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
-      propertyPath: timeRemaining
-      value: 60
+    - target: {fileID: 5832814921222183654, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
+      propertyPath: DeathTimeScale
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}

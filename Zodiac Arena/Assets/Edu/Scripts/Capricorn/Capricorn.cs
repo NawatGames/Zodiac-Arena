@@ -101,7 +101,6 @@ public class Capricorn : MonoBehaviour
         rb.AddForce(stoppingForceDirection * velocity);
         running = false;
         StartCoroutine(StartAttacks(1f));
-        Debug.Log("Stopped dash");
     }
 
 

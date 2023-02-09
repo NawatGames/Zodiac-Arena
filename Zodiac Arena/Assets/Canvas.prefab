@@ -931,6 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 5832814921222183577}
+  DeathTimeScale: 0.1
 --- !u!111 &5832814921222183577
 Animation:
   m_ObjectHideFlags: 0
