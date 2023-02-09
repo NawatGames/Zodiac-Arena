@@ -976,7 +976,7 @@ MonoBehaviour:
   leftAnimCtrl: {fileID: 22100000, guid: 3f52a56e223d5d8468a741bd7d2245b2, type: 2}
   rightAnimCtrl: {fileID: 22100000, guid: 8a4d1082e8c2b5a49b6cef86bf815a3c, type: 2}
   nFallingRams: 6
-  spawnDelay: 1.5
+  spawnDelay: 1
 --- !u!212 &1776621014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1140,7 +1140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6599534515644003953, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}
       propertyPath: timeRemaining
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d79d6729e78f59443be2536ba098c0dc, type: 3}

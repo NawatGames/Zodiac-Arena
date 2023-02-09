@@ -556,7 +556,7 @@ MonoBehaviour:
   player: {fileID: 250240530}
   beam: {fileID: 1510993427356102260, guid: 2d6464d693f197447a21d4d34c121da9, type: 3}
   velocity: 400
-  nShots: 2
+  nShots: 5
   leftAnimCtrl: {fileID: 22100000, guid: b7fd27bec34ae0747a27ed7d8423050d, type: 2}
   rightAnimCtrl: {fileID: 22100000, guid: 7e1f7a50220005b46aacf037062ce2ae, type: 2}
 --- !u!212 &1225033995
